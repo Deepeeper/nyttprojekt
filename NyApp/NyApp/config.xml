@@ -104,8 +104,6 @@
   <platform name="wp8">
     <splash src="res/screens/wp8/SplashScreenImage.jpg" width="480" height="800" />
   </platform>
-  <vs:plugin name="cordova-plugin-file" version="4.0.0" />
   <vs:plugin name="cordova-plugin-globalization" version="1.0.2" />
-  <vs:plugin name="cordova-plugin-whitelist" version="1.2.0" />
-  <vs:plugin name="cordova-plugin-splashscreen" version="3.0.0" />
+  <vs:plugin name="cordova-plugin-file" version="3.0.0" src="C:\Users\Albin\Desktop\cordova-plugin-file-r3.0.0" />
 </widget>

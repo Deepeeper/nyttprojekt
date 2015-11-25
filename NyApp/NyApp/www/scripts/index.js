@@ -16,7 +16,7 @@ var cardID;
 
     function onDeviceReady() {
         // Handle the Cordova pause and resume events
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 1, gotFS, fail);
         document.addEventListener('pause', onPause.bind(this), false);
         document.addEventListener('resume', onResume.bind(this), false);
         // document.getElementById('readFile').addEventListener('click', readFile, false);
@@ -90,6 +90,11 @@ var cardID;
     }
 })();
 
+function trainingCardDone(i) {
+    alert("TCDone");
+    cardID = i;
+    makeCardFile();
+}
 
 function makeCardFile() {
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
@@ -109,6 +114,7 @@ function fail(error) {
     console.log(error.code);
 }
 function readCardFile() {
+    alert("readCardfIile");
     cardFilePath.file(
               function (file) {
                   var reader = new FileReader();
@@ -129,11 +135,4 @@ function checkEarlierCards() {
 function goBack() {
     window.history.back();
 }
-function trainingCardDone(i) {
-    cardID = i;
-    makeCardFile();
-}
 
-function readCardFile() {
-    readCardFile();
-}

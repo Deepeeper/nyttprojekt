@@ -12,15 +12,15 @@
         trainingCardDone(4);
     }
     $scope.trainingCard4Read = function () {
-        readCardFile()
+        readCardFile();
     }
     $scope.trainingCard3Read = function () {
-        readCardFile()
+        readCardFile();
     }
     $scope.trainingCard2Read = function () {
-        readCardFile()
+        readCardFile();
     }
     $scope.trainingCard1Read = function () {
-        readCardFile()
+        readCardFile();
     }
 }]);

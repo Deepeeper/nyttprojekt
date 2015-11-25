@@ -1,8 +1,8 @@
 {
-    "cordova-plugin-file": {
+    "cordova-plugin-whitelist": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-file@4.0.0"
+            "id": "cordova-plugin-whitelist@1"
         },
         "is_top_level": true,
         "variables": {}
@@ -15,18 +15,10 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-whitelist": {
+    "cordova-plugin-file": {
         "source": {
-            "type": "registry",
-            "id": "cordova-plugin-whitelist@1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-splashscreen": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-splashscreen"
+            "type": "local",
+            "path": "C:\\Users\\Albin\\Desktop\\cordova-plugin-file-r3.0.0"
         },
         "is_top_level": true,
         "variables": {}
