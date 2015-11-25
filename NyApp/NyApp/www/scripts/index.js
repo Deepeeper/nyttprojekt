@@ -4,8 +4,9 @@
 // and then run "window.location.reload()" in the JavaScript Console.
 
 var dateFilePath;
-var dateFilePath2;
+var cardFilePath;
 var fileName2 = "heyy.txt";
+var cardID;
 (function () {
     "use strict";
 
@@ -90,36 +91,25 @@ var fileName2 = "heyy.txt";
 })();
 
 
-function makeFile() {
+function makeCardFile() {
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 }
 function gotFS(fileSystem) {
     fileSystem.root.getFile(fileName2, { create: true, exclusive: false }, gotFileEntry, fail);
 }
 function gotFileEntry(fileEntry) {
-    dateFilePath2 = fileEntry;
+    cardFilePath = fileEntry;
     fileEntry.createWriter(gotFileWriter, fail);
 }
 function gotFileWriter(writer) {
-    writer.write("igen");
+    writer.write(cardID);
 }
-function readFileDate2() {
-    dateFilePath2.file(
-              function (file) {
-                  var reader = new FileReader();
-                  reader.onloadend = function (evt) { alert(evt.target.result); };
-                  reader.readAsText(file);
-              },
-              function () {
-                  console.log("Panic, cant read file!");
-              }
-          );
-}
+
 function fail(error) {
     console.log(error.code);
 }
-function readFileDate1() {
-    dateFilePath.file(
+function readCardFile() {
+    cardFilePath.file(
               function (file) {
                   var reader = new FileReader();
                   reader.onloadend = function (evt) { alert(evt.target.result); };
@@ -140,5 +130,10 @@ function goBack() {
     window.history.back();
 }
 function trainingCardDone(i) {
-    alert(i);
+    cardID = i;
+    makeCardFile();
+}
+
+function readCardFile() {
+    readCardFile();
 }
