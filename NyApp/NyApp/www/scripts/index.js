@@ -15,7 +15,7 @@ var fileName2 = "heyy.txt";
 
     function onDeviceReady() {
         // Handle the Cordova pause and resume events
-      //  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
         document.addEventListener('pause', onPause.bind(this), false);
         document.addEventListener('resume', onResume.bind(this), false);
         // document.getElementById('readFile').addEventListener('click', readFile, false);
