@@ -7,6 +7,7 @@ var dateFilePath;
 var cardFilePath;
 var fileName2 = "heyy.txt";
 var cardID;
+var cardDone = 0;
 (function () {
     "use strict";
 
@@ -114,11 +115,11 @@ function fail(error) {
     console.log(error.code);
 }
 function readCardFile() {
-    alert("readCardfIile");
+   // alert("readCardfIile");
     cardFilePath.file(
               function (file) {
                   var reader = new FileReader();
-                  reader.onloadend = function (evt) { alert(evt.target.result); };
+                  reader.onloadend = function (evt) { cardDone = evt.target.result; };
                   reader.readAsText(file);
               },
               function () {
@@ -126,7 +127,9 @@ function readCardFile() {
               }
           );
 }
-
+function getCardValue() {
+    return cardDone;
+}
 //checks if earlier trainingcards are done!
 function checkEarlierCards() {
     return true;

@@ -1,5 +1,7 @@
 ﻿app.controller('coworkerController', ['$scope', function ($scope) {
-    $scope.cardsDone = 2;
+    $scope.cardsDone = 0;
+    readCardFile();
+    $scope.cardsDone = getCardValue();
 
     var dateFromFile = new Date("12/31/2015");
     var currentDate = new Date("1/1/2016");
