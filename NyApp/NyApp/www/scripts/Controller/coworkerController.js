@@ -1,4 +1,14 @@
-﻿app.controller('coworkerController', ['$scope', function ($scope) {
+﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile) {
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        alert("coworker Contorller");
+        $cordovaFile.readAsText(cordova.file.dataDirectory, "fucks666.txt").then(function (result) {
+            alert(JSON.stringify(result));
+        }, function (error) {
+            alert("läsfel");
+        });
+    }
+
     $scope.initCardValue = function () {
         $scope.cardsDone = getCardValue();
     }
@@ -21,4 +31,4 @@
     $scope.previous = function () {
         goBack();
     }
-}]);
+});
