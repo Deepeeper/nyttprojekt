@@ -121,7 +121,11 @@ background-color: #F62B2B;
 }
 
 #home-header{
-    margin-left:3%;
+    padding-top:6px;
+    margin-left:20%;
+    font-size:120%;
+    font-family: "Arial", sans-serif;
+    color:white;
 
 }
 
