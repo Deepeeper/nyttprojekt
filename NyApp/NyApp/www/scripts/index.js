@@ -93,7 +93,8 @@ var cardDone = 0;
 
 function trainingCardDone(i) {
     cardID = i;
-    makeCardFile();
+    if (cardFilePath == null) { makeCardFile(); }
+    else { gotFileWriter();}
 }
 
 function makeCardFile() {
@@ -118,8 +119,8 @@ function readCardFile() {
     else{cardFilePath.file(
               function (file) {
                   var reader = new FileReader();
-                  reader.onloadend = function (evt) { cardDone = evt.target.result; };
-                  reader.readAsText(file);
+                  reader.onloadend = function (evt) { console.log("Nu är vi i onloadned"); cardDone = evt.target.result; };
+                  cardDone = reader.readAsText(file); console.log("nu är vi inte i onloadend");
               },
               function () {
                   alert("Panic, cant read file!");
