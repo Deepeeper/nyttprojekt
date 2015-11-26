@@ -93,8 +93,7 @@ var cardDone = 0;
 
 function trainingCardDone(i) {
     cardID = i;
-    if (cardFilePath == null) { makeCardFile(); }
-    else { gotFileWriter();}
+    makeCardFile();
 }
 
 function makeCardFile() {
@@ -109,6 +108,7 @@ function gotFileEntry(fileEntry) {
 }
 function gotFileWriter(writer) {
     writer.write(cardID);
+    readCardFile();
 }
 
 function fail(error) {
@@ -119,8 +119,8 @@ function readCardFile() {
     else{cardFilePath.file(
               function (file) {
                   var reader = new FileReader();
-                  reader.onloadend = function (evt) { console.log("Nu är vi i onloadned"); cardDone = evt.target.result; };
-                  cardDone = reader.readAsText(file); console.log("nu är vi inte i onloadend");
+                  reader.onloadend = function (evt) { cardDone = evt.target.result; /*alert("Nu är cardDone i readCardFile = " + cardDone);*/ };
+                  reader.readAsText(file);
               },
               function () {
                   alert("Panic, cant read file!");
