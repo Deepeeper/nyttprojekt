@@ -8,11 +8,20 @@
         </div>
         Medarbetare
     </div>
-    <div id="centerContentTrainingcard">
-        <a href="#/trainingCard1"><button class="buttons" ng-class="{done: cardsDone > 0}">Träningskort 1</button></a>
+    <div id="centerContentTrainingcard" ng-init="initCardValue()">
+        <!--<a href="#/trainingCard1"><button class="buttons" ng-class="{done: cardsDone > 0}">Träningskort 1</button></a>
         <a href="#/trainingCard2"><button class="buttons" ng-class="{ready: cardsDone > 0, done: cardsDone > 1}" ng-disabled="checkDate() < 7">Träningskort 2</button></a>
         <a href="#/trainingCard3"><button class="buttons" ng-class="{ready: cardsDone > 1, done: cardsDone > 2}" ng-disabled="checkDate() < 14">Träningskort 3</button></a>
-        <a href="#/trainingCard4"><button class="buttons" ng-class="{ready: cardsDone > 2, done: cardsDone > 3}" ng-disabled="checkDate() < 21">Träningskort 4</button></a>
+        <a href="#/trainingCard4"><button class="buttons" ng-class="{ready: cardsDone > 2, done: cardsDone > 3}" ng-disabled="checkDate() < 21">Träningskort 4</button></a>-->
+
+
+        <a href="#/trainingCard1"><button class="buttons" ng-class="{ready: cardsDone == 0,done:  cardsDone > 0}">Träningskort 1</button></a>
+        <a href="#/trainingCard2"><button class="buttons" ng-class="{ready: cardsDone > 0, done: cardsDone > 1}">Träningskort 2</button></a>
+        <a href="#/trainingCard3"><button class="buttons" ng-class="{ready: cardsDone > 1, done: cardsDone > 2}">Träningskort 3</button></a>
+        <a href="#/trainingCard4"><button class="buttons" ng-class="{ready: cardsDone > 2, done: cardsDone > 3}">Träningskort 4</button></a>
+
+
+
     </div>
 </body>
 </html>

@@ -5,7 +5,7 @@
 
 var dateFilePath;
 var cardFilePath;
-var fileName2 = "heyy.txt";
+var cardFile = "heyyy.txt";
 var cardID;
 var cardDone = 0;
 (function () {
@@ -92,7 +92,6 @@ var cardDone = 0;
 })();
 
 function trainingCardDone(i) {
-    alert("TCDone");
     cardID = i;
     makeCardFile();
 }
@@ -101,7 +100,7 @@ function makeCardFile() {
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 }
 function gotFS(fileSystem) {
-    fileSystem.root.getFile(fileName2, { create: true, exclusive: false }, gotFileEntry, fail);
+    fileSystem.root.getFile(cardFile, { create: true, exclusive: false }, gotFileEntry, fail);
 }
 function gotFileEntry(fileEntry) {
     cardFilePath = fileEntry;
@@ -115,17 +114,18 @@ function fail(error) {
     console.log(error.code);
 }
 function readCardFile() {
-   // alert("readCardfIile");
-    cardFilePath.file(
+    if (cardFilePath == null) { makeCardFile();}
+    else{cardFilePath.file(
               function (file) {
                   var reader = new FileReader();
                   reader.onloadend = function (evt) { cardDone = evt.target.result; };
                   reader.readAsText(file);
               },
               function () {
-                  console.log("Panic, cant read file!");
+                  alert("Panic, cant read file!");
               }
           );
+    }
 }
 function getCardValue() {
     return cardDone;
