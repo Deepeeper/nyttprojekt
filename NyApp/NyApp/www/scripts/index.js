@@ -17,10 +17,10 @@ var cardDone = 0;
 
     function onDeviceReady() {
         // Handle the Cordova pause and resume events
-        //window.requestFileSystem(LocalFileSystem.PERSISTENT, 1, gotFS, fail);
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
         document.addEventListener('pause', onPause.bind(this), false);
         document.addEventListener('resume', onResume.bind(this), false);
-        // document.getElementById('readFile').addEventListener('click', readFile, false);
+        //document.getElementById('readKnapp').addEventListener('click', readFileDate, false);
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
     };
 
@@ -110,7 +110,6 @@ function gotFileWriter(writer) {
     writer.write(cardID);
     readCardFile();
 }
-
 function fail(error) {
     console.log(error.code);
 }
@@ -119,23 +118,23 @@ function readCardFile() {
     else{cardFilePath.file(
               function (file) {
                   var reader = new FileReader();
-                  reader.onloadend = function (evt) { cardDone = evt.target.result; /*alert("Nu är cardDone i readCardFile = " + cardDone);*/ };
+                  reader.onloadend = function (evt) { cardDone = evt.target.result; };
                   reader.readAsText(file);
               },
               function () {
-                  alert("Panic, cant read file!");
+                  console.log("Panic, cant read file!");
               }
           );
     }
 }
 function getCardValue() {
+    //alert("We are now in getCardCaule an the cardDone = " + cardDone);
     return cardDone;
 }
 //checks if earlier trainingcards are done!
 function checkEarlierCards() {
     return true;
 }
-
 function goBack() {
     window.history.back();
 }

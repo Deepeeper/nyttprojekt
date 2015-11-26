@@ -11,7 +11,16 @@
     $scope.trainingCard4Done = function () {
         trainingCardDone(4);
     }
+    $scope.trainingCard5Done = function () {
+        trainingCardDone(5);
+    }
+    $scope.trainingCard6Done = function () {
+        trainingCardDone(6);
+    }
     $scope.previous = function () {
         goBack();
+    }
+    $scope.trainingCard1Read = function () {
+        readCardFile();
     }
 }]);

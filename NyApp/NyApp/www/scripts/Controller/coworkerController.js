@@ -14,6 +14,10 @@
         return diffDays;
     };
 
+    $scope.checkCard = function () {
+        return getCardValue();
+    }
+
     $scope.previous = function () {
         goBack();
     }
