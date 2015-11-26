@@ -11,16 +11,7 @@
     $scope.trainingCard4Done = function () {
         trainingCardDone(4);
     }
-    $scope.trainingCard4Read = function () {
-        readCardFile();
-    }
-    $scope.trainingCard3Read = function () {
-        readCardFile();
-    }
-    $scope.trainingCard2Read = function () {
-        readCardFile();
-    }
-    $scope.trainingCard1Read = function () {
-        readCardFile();
+    $scope.previous = function () {
+        goBack();
     }
 }]);
