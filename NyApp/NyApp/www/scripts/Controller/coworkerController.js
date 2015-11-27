@@ -4,14 +4,14 @@
     var dateFromFile;
     function onDeviceReady() {
         alert("coworker Controller");
-        $cordovaFile.readAsText(cordova.file.dataDirectory, "fucks666.txt").then(function (result) {
+        $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(function (result) {
             dateFromFile = new Date(JSON.stringify(result));
             alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result));
         }, function (error) {
             alert("läsfel: " + error);
         });
 
-        $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date and time' }).then(
+        $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
             function (result) {
                 currentDate = new Date(result.value);
                 alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value);
@@ -19,6 +19,15 @@
             function (error) {
                 alert("dateToString error: " + error);
             });
+        document.getElementById('lastest').addEventListener('click', test, false);
+
+        function test() {
+            $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
+                alert(JSON.stringify(result));
+            }, function (error) {
+                alert("läsfel");
+            });
+        }
     }
 
     $scope.initCardValue = function () {
