@@ -45,7 +45,6 @@
 
 
         $scope.checkDate = function () {
-            alert("dayDifferntial: " + dayDifferential);
             return dayDifferential;
         };
 
