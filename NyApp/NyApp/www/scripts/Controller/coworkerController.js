@@ -1,11 +1,24 @@
-﻿app.controller('coworkerController', ['$scope', function ($scope) {
-    $scope.initCardValue = function () {
-        alert("Nu körs inint!");
-        readCardFile();
-        $scope.cardsDone = getCardValue();
-        alert($scope.cardsDone);
-    }
+﻿app.controller('coworkerController', ['$scope', function ($scope, $cordovaGlobalization) {
     
+    //$cordovaGlobalization.getFirstDayOfWeek().then(
+    //function (result) {
+    //    alert(result);
+    //},
+    //function (error) {
+    //    // error
+    //});
+
+    //$scope.globalTest = function () {
+    //    alert("<zxc");
+    //    $cordovaGlobalization.getFirstDayOfWeek().then(
+    //function (result) {
+    //    alert(result);
+    //},
+    //function (error) {
+    //    // error
+    //});
+    //};
+
     //readCardFile();
     //$scope.cardsDone = getCardValue();
 
@@ -19,13 +32,4 @@
     //    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
     //    return diffDays;
     //};
-
-    $scope.readFiles = function(){
-        readFileDate2();
-    }
-
-    $scope.makeFile = function () {
-        makeFile();
-     
-    }
 }]);
