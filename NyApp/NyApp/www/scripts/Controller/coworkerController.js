@@ -11,15 +11,14 @@
     function onDeviceReady() {
 
         alert("coworker Controller");
-        if (!USEDEBUGDATEFROMFILE) {
+      
             var test = $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
                 readAsTextSuccess, failCallback);
-        } else { dateFromFile = DEBUGDATEFROMFILE; }
 
-        if (!USEDEBUGCURRENTDATE) {
+
             var testt = $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
                 dateToStringSuccess, failCallback);
-        } else {  } 
+
 
         $q.all([test, testt]).then(function () {
             alert("wat");
