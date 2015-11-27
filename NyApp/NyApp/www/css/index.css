@@ -6,6 +6,43 @@
     overflow-x: hidden;
 }
 
+.doneButtons {
+border-top-color: #819BCB;
+border-right-color: #819BCB;
+border-bottom-color: #FF8585;
+border-left-color: #819BCB;
+color: #FFFFFF;
+background-color: #F62B2B; 
+
+border-width: 0px 0px 7px 0px;
+
+border-style: solid; 
+-webkit-border-radius: 0px; 
+-moz-border-radius: 0px;
+border-radius: 4px;
+font-size:100%;
+font-family:arial, helvetica, sans-serif; 
+padding: 5px 5px 5px 5px; 
+text-decoration:none; 
+display:inline-block;
+text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+font-weight:bold; 
+background-image: -webkit-gradient(linear, left top, left bottom, from(#F62B2B), to(#D20202));
+background-image: -webkit-linear-gradient(top, #F62B2B, #D20202);
+background-image: -moz-linear-gradient(top, #F62B2B, #D20202);
+/*background-image: -ms-linear-gradient(top, #F62B2B, #D20202);*/
+background-image: -o-linear-gradient(top, #F62B2B, #D20202);
+background-image: linear-gradient(to bottom, #F62B2B, #D20202);
+filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F62B2B, endColorstr=#D20202);
+width:30%;
+margin-bottom: 3%;
+}
+
+#putContentAtBottomAndCenter{
+    align-content:center;
+    text-align:center;
+}
+
 .buttons{
 border-top-color: #819BCB;
 border-right-color: #819BCB;
