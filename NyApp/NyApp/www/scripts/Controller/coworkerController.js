@@ -13,12 +13,13 @@
 
         alert("coworker Controller");
         if (!USEDEBUGDATEFROMFILE) {
-            $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(function (result) {
-                dateFromFile = new Date(JSON.stringify(result));
-                if (DEBUG == 1) { alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result)); }
-            }, function (error) {
-                alert("läsfel: " + error);
-            });
+            $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
+                function (result) {
+                    dateFromFile = new Date(result.value);
+                    if (DEBUG == 1) { alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result)); }
+                }, function (error) {
+                    alert("läsfel: " + error);
+                });
         } else { dateFromFile = DEBUGDATEFROMFILE; }
 
         if (!USEDEBUGCURRENTDATE) {
@@ -26,8 +27,7 @@
                 function (result) {
                     currentDate = new Date(result.value);
                     if (DEBUG == 1) { alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); }
-                },
-                function (error) {
+                }, function (error) {
                     alert("dateToString error: " + error);
                 });
         } else { currentDate = DEBUGCURRENTDATE; }
