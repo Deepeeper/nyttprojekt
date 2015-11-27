@@ -17,10 +17,23 @@ var cardDone = 0;
 
     function onDeviceReady() {
         // Handle the Cordova pause and resume events
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+        // window.requestFileSystem(LocalFileSystem.PERSISTENT, 1, gotFS, fail);
         document.addEventListener('pause', onPause.bind(this), false);
         document.addEventListener('resume', onResume.bind(this), false);
-        //document.getElementById('readKnapp').addEventListener('click', readFileDate, false);
+        navigator.globalization.dateToString(
+        new Date(),
+        function (date) {
+            alert("success");
+            var fuskDate = new Date("1/1/2014");
+            var timeDiff = Math.abs(new Date(date.value).getTime() - fuskDate.getTime());
+            var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            alert(diffDays);
+        },
+        function () { alert('Error getting dateString\n'); },
+        { formatLength: 'short', selector: 'date' }
+);
+
+        // document.getElementById('readFile').addEventListener('click', readFile, false);
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
     };
 
@@ -108,33 +121,34 @@ function gotFileEntry(fileEntry) {
 }
 function gotFileWriter(writer) {
     writer.write(cardID);
-    readCardFile();
 }
+
 function fail(error) {
     console.log(error.code);
 }
 function readCardFile() {
-    if (cardFilePath == null) { makeCardFile();}
-    else{cardFilePath.file(
-              function (file) {
-                  var reader = new FileReader();
-                  reader.onloadend = function (evt) { cardDone = evt.target.result; };
-                  reader.readAsText(file);
-              },
-              function () {
-                  console.log("Panic, cant read file!");
-              }
-          );
+    if (cardFilePath == null) { makeCardFile(); }
+    else {
+        cardFilePath.file(
+             function (file) {
+                 var reader = new FileReader();
+                 reader.onloadend = function (evt) { cardDone = evt.target.result; };
+                 reader.readAsText(file);
+             },
+             function () {
+                 alert("Panic, cant read file!");
+             }
+         );
     }
 }
 function getCardValue() {
-    //alert("We are now in getCardCaule an the cardDone = " + cardDone);
     return cardDone;
 }
 //checks if earlier trainingcards are done!
 function checkEarlierCards() {
     return true;
 }
+
 function goBack() {
     window.history.back();
 }

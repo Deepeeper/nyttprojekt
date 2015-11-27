@@ -1,29 +1,32 @@
 ﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile) {
     document.addEventListener("deviceready", onDeviceReady, false);
+    var currentDate;
+    var dateFromFile;
     function onDeviceReady() {
-        alert("coworker Contorller");
+        alert("coworker Controller");
         $cordovaFile.readAsText(cordova.file.dataDirectory, "fucks666.txt").then(function (result) {
-            alert(JSON.stringify(result));
+            dateFromFile = new Date(JSON.stringify(result));
+            alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result));
         }, function (error) {
-            alert("läsfel");
+            alert("läsfel: " + error);
         });
-        document.getElementById('lastest').addEventListener('click', test, false);
 
-        function test() {
-            $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
-                alert(JSON.stringify(result));
-            }, function (error) {
-                alert("läsfel");
+        $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date and time' }).then(
+            function (result) {
+                currentDate = new Date(result.value);
+                alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value);
+            },
+            function (error) {
+                alert("dateToString error: " + error);
             });
-        }
     }
 
     $scope.initCardValue = function () {
         $scope.cardsDone = getCardValue();
     }
 
-    var dateFromFile = new Date("12/31/2015");
-    var currentDate = new Date("1/1/2016");
+    
+    
 
     $scope.checkDate = function(){
         console.log(dateFromFile);
