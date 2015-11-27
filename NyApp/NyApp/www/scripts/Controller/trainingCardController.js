@@ -2,6 +2,13 @@
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
 
+        $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
+            alert(JSON.stringify(result)); $scope.cardsDone = result; 
+        }, function (error) {
+            alert("läsfel");
+            $scope.cardsDone = 0;
+        });
+
         $scope.saveCardNumber = function(num) {
                 $cordovaFile.writeFile(cordova.file.dataDirectory, "jort.txt", num, true)
                 .then(function (success) {
