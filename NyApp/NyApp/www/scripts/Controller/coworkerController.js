@@ -7,6 +7,15 @@
         }, function (error) {
             alert("läsfel");
         });
+        document.getElementById('lastest').addEventListener('click', test, false);
+
+        function test() {
+            $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
+                alert(JSON.stringify(result));
+            }, function (error) {
+                alert("läsfel");
+            });
+        }
     }
 
     $scope.initCardValue = function () {
