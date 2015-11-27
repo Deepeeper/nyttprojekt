@@ -25,8 +25,8 @@
         if (!USEDEBUGCURRENTDATE) {
             $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
                 function (result) {
-                    currentDate = new Date(JSON.stringify(result));
-                    if (DEBUG == 1) { alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); }
+                    currentDate = new Date(result.value);
+                    if (DEBUG == 1) { alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); alert("getTime = " + currentDate.getTime()); }
                 }, function (error) {
                     alert("dateToString error: " + error);
                 });
@@ -46,9 +46,9 @@
         //    alert("checkDate = " + checkDate);
         //}
 
-        var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
-        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-        alert("diffDays = " + diffDays);
+        //var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
+        //var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        //alert("diffDays = " + diffDays);
 
         $scope.checkDate = function () {
             console.log(dateFromFile);
