@@ -7,7 +7,7 @@
     var DEBUGDATEFROMFILE = new Date("1/1/2015");
     var DEBUGCURRENTDATE = new Date("12/1/2015");
 
-    //
+    // asdf
     var currentDate;
     var dateFromFile;
     var dayDelta = 0;
