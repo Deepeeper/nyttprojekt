@@ -1,6 +1,8 @@
 ﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile) {
 
-    var DEBUG = 1;
+    var DEBUGALERTS = true;
+    var DEBUGFILEDATE = false;
+
 
     document.addEventListener("deviceready", onDeviceReady, false);
     var currentDate;
@@ -9,7 +11,7 @@
         alert("coworker Controller");
         $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(function (result) {
             dateFromFile = new Date(JSON.stringify(result));
-            if(DEBUG == 1) { alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result)); }
+            if(DEBUGALERTS) { alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result)); }
         }, function (error) {
             alert("läsfel: " + error);
         });
@@ -17,7 +19,7 @@
         $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
             function (result) {
                 currentDate = new Date(result.value);
-                if (DEBUG == 1) { alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); }
+                if (DEBUGALERTS) { alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); }
             },
             function (error) {
                 alert("dateToString error: " + error);
@@ -26,12 +28,12 @@
 
         function test() {
             $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
-                if (DEBUG == 1) { alert(JSON.stringify(result)); }
+                if (DEBUGALERTS) { alert(JSON.stringify(result)); }
             }, function (error) {
                 alert("läsfel");
             });
         }
-        if(DEBUG == 1) { alert("checkDate = " + checkDate());
+        if(DEBUGALERTS) { alert("checkDate = " + checkDate());
     }
 
     $scope.initCardValue = function () {
