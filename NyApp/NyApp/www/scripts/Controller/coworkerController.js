@@ -11,18 +11,18 @@
     function onDeviceReady() {
 
         alert("coworker Controller");
-        if (!USEDEBUGDATEFROMFILE) {
             var test = $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
                 readAsTextSuccess, failCallback);
-        } else { dateFromFile = DEBUGDATEFROMFILE; }
 
-        if (!USEDEBUGCURRENTDATE) {
             var testt = $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
                 dateToStringSuccess, failCallback);
-        } else {  } 
 
         $q.all([test, testt]).then(function () {
-            alert("wat");
+            console.log(dateFromFile);
+            console.log(currentDate);
+            var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
+            var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            alert( diffDays);
         })
 
         // Promise test
