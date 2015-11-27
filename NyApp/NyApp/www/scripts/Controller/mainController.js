@@ -1,39 +1,28 @@
 ﻿app.controller('mainController', function ($scope, $cordovaGlobalization, $cordovaFile) {
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-        //Sucess = filen finns i systemet.
+        // Check if date.txt exists. If true, do nothing, else fetch todays date and write it to the file.
         $cordovaFile.checkFile(cordova.file.dataDirectory, "date.txt").then(
-            function (success) {
-                alert("fil finns");
-            },
+            resultCallback,
             function (error) {
-                $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
-             function (result) {
-                 $cordovaFile.writeFile(cordova.file.dataDirectory, "date.txt", result.value, true)
-                 .then(function (success) { alert("Success vaue är" + success); });
-             },
-                  function (error) {
-                      alert();
-                  });
+                $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(function (result) {
+                    $cordovaFile.writeFile(cordova.file.dataDirectory, "date.txt", result.value, true).then(resultCallback);
+                }, resultCallback);
             });
 
+        // Deletes respective file when invoked
         $scope.removeCount = function () {
-                $cordovaFile.removeFile(cordova.file.dataDirectory, "jort.txt").then(
-                    function (success) {
-                        console.log(JSON.stringify(success, null, 4));
-                    },
-                    function (error) {
-                        alert(JSON.stringify(error, null, 4));
-                    });
+            $cordovaFile.removeFile(cordova.file.dataDirectory, "jort.txt").then(
+                resultCallback, resultCallback);
         }
         $scope.removeDate = function () {
             $cordovaFile.removeFile(cordova.file.dataDirectory, "date.txt").then(
-                function (success) {
-                    alert("date.txt removed");
-                },
-                function (error) {
-                    alert(JSON.stringify(error, null, 4));
-                });
+                resultCallback, resultCallback);
+        }
+
+        // Callback functions
+        function resultCallback(result) {
+            console.log(JSON.stringify(result, null, 4));
         }
     }
 });
