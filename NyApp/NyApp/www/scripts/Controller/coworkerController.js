@@ -1,4 +1,4 @@
-﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile) {
+﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $q) {
 
     var DEBUG = 1;
     var USEDEBUGDATES = false;
@@ -11,34 +11,36 @@
     function onDeviceReady() {
 
         alert("coworker Controller");
-        //if (!USEDEBUGDATEFROMFILE) {
-        //    $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
-        //        readAsTextSuccess, failCallback);
-        //} else { dateFromFile = DEBUGDATEFROMFILE; }
+        if (!USEDEBUGDATEFROMFILE) {
+            var test = $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
+                readAsTextSuccess, failCallback);
+        } else { dateFromFile = DEBUGDATEFROMFILE; }
 
-        //if (!USEDEBUGCURRENTDATE) {
-        //    $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
-        //        dateToStringSuccess, failCallback);
-        //} else {  } 
+        if (!USEDEBUGCURRENTDATE) {
+            var testt = $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
+                dateToStringSuccess, failCallback);
+        } else {  } 
+
+        $q.all([test, testt]).then(function () {
+            alert("wat");
+        })
 
         // Promise test
-        if(!USEDEBUGDATES) {
-        $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt")
-            .then(readAsTextSuccess, failCallback).then(
-            $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }, failCallback)
-            .then(dateToStringSuccess, failCallback));
-        } else { dateFromFile = DEBUGDATEFROMFILE; currentDate = DEBUGCURRENTDATE; }
+        //if(!USEDEBUGDATES) {
+        //$cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt")
+        //    .then(readAsTextSuccess, failCallback).then(
+        //    $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }, failCallback)
+        //    .then(dateToStringSuccess, failCallback));
+        //} else { dateFromFile = DEBUGDATEFROMFILE; currentDate = DEBUGCURRENTDATE; }
 
         // ngCordova callback functions
         function readAsTextSuccess(result) {
             dateFromFile = new Date(JSON.stringify(result));
             if (DEBUG == 1) { console.log("1");alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result)); }
-            return result;
         }
         function dateToStringSuccess(result) {
             currentDate = new Date(result.value);
             if (DEBUG == 1) { console.log("2");alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); }
-            return result;
         }
         function failCallback(error) {
             alert(JSON.stringify(error, null, 4));
