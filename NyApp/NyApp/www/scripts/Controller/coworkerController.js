@@ -16,7 +16,7 @@
             $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
                 function (result) {
                     dateFromFile = new Date(JSON.stringify(result));
-                    if (DEBUG == 1) { alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result)); alert("getTime = " + dateFromFile.getTime()) }
+                    if (DEBUG == 1) { alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result)); }
                 }, function (error) {
                     alert("läsfel: " + error);
                 });
@@ -26,7 +26,7 @@
             $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
                 function (result) {
                     currentDate = new Date(result.value);
-                    if (DEBUG == 1) { alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); }
+                    if (DEBUG == 1) { alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); alert("getTime = " + currentDate.getTime()); }
                 }, function (error) {
                     alert("dateToString error: " + error);
                 });
