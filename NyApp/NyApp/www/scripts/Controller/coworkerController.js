@@ -21,7 +21,7 @@
             });
         } else { dateFromFile = DEBUGDATEFROMFILE; }
 
-        if (USEDEBUGCURRENTDATE) {
+        if (!USEDEBUGCURRENTDATE) {
             $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
                 function (result) {
                     currentDate = new Date(result.value);

@@ -8,7 +8,7 @@
                       alert("Success value är" + success);
                 },
             function (error) {
-                alert("risigt");
+                alert(JSON.stringify(error, null, 4));
             });
         }
     }
