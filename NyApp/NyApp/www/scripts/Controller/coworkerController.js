@@ -14,12 +14,12 @@
         alert("coworker Controller");
         if (!USEDEBUGDATEFROMFILE) {
             $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
-                readAsTextSuccess(result), failCallback(error));
+                readAsTextSuccess, failCallback);
         } else { dateFromFile = DEBUGDATEFROMFILE; }
 
         if (!USEDEBUGCURRENTDATE) {
             $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
-                dateToStringSuccess(result), failCallback(error));
+                dateToStringSuccess, failCallback);
         } else { currentDate = DEBUGCURRENTDATE; }
 
         // ngCordova callback functions
