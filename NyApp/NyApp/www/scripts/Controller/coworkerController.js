@@ -15,7 +15,7 @@
         if (!USEDEBUGDATEFROMFILE) {
             $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
                 function (result) {
-                    dateFromFile = new Date(result.value);
+                    dateFromFile = new Date(JSON.stringify(result));
                     if (DEBUG == 1) { alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result)); }
                 }, function (error) {
                     alert("läsfel: " + error);
@@ -25,7 +25,7 @@
         if (!USEDEBUGCURRENTDATE) {
             $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
                 function (result) {
-                    currentDate = new Date(result.value);
+                    currentDate = new Date(JSON.stringify(result));
                     if (DEBUG == 1) { alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); }
                 }, function (error) {
                     alert("dateToString error: " + error);
