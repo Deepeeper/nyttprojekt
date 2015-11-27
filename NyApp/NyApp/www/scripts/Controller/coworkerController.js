@@ -6,17 +6,18 @@
         alert("coworker Controller");
         $cordovaFile.readAsText(cordova.file.dataDirectory, "fucks666.txt").then(function (result) {
             dateFromFile = new Date(JSON.stringify(result));
+            alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result));
         }, function (error) {
-            alert("läsfel");
+            alert("läsfel: " + error);
         });
 
         $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date and time' }).then(
             function (result) {
                 currentDate = new Date(result.value);
-                alert("Success!\ncurrentDate = " + currentDate.getDate + "\nresult.value = " + result.value);
+                alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value);
             },
             function (error) {
-
+                alert("dateToString error: " + error);
             });
     }
 
