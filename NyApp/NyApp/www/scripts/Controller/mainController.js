@@ -2,15 +2,14 @@
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         //Sucess = filen finns i systemet.
-        $cordovaFile.checkFile(cordova.file.dataDirectory, "fucks666.txt").then(
+        $cordovaFile.checkFile(cordova.file.dataDirectory, "date.txt").then(
             function (success) {
                 alert("fil finns");
-
             },
             function (error) {
-                $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date and time' }).then(
+                $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
              function (result) {
-            $cordovaFile.writeFile(cordova.file.dataDirectory, "fucks666.txt", result.value, true)
+            $cordovaFile.writeFile(cordova.file.dataDirectory, "date.txt", result.value, true)
             .then(function (success) { alert("Success vaue är" + success); });
              },
                   function (error) {
