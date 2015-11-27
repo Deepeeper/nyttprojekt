@@ -14,27 +14,28 @@
         alert("coworker Controller");
         if (!USEDEBUGDATEFROMFILE) {
             $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
-                function (result) {
-                    dateFromFile = new Date(JSON.stringify(result));
-                    if (DEBUG == 1) { alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result)); }
-                }, function (error) {
-                    alert("läsfel: " + error);
-                });
+                readAsTextSuccess(result), failCallback(error));
         } else { dateFromFile = DEBUGDATEFROMFILE; }
 
         if (!USEDEBUGCURRENTDATE) {
             $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
-                function (result) {
-                    currentDate = new Date(result.value);
-                    if (DEBUG == 1) { alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); }
-                }, function (error) {
-                    alert("dateToString error: " + error);
-                });
+                dateToStringSuccess(result), failCallback(error));
         } else { currentDate = DEBUGCURRENTDATE; }
 
+        // ngCordova callback functions
+        function readAsTextSuccess(result) {
+            dateFromFile = new Date(JSON.stringify(result));
+            if (DEBUG == 1) { alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result)); }
+        }
+        function dateToStringSuccess(result) {
+            currentDate = new Date(result.value);
+            if (DEBUG == 1) { alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); }
+        }
+        function failCallback(error) {
+            alert(JSON.stringify(error, null, 4));
+        }
 
-
-        //Reading the file at coworker startuo
+        // Fetch number of completed cards from file
         $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
             if (DEBUG == 1) { alert(JSON.stringify(result)); $scope.cardsDone = result; }
         }, function (error) {
@@ -42,11 +43,6 @@
             $scope.cardsDone = 0;
         });
 
-        //if (DEBUG == 1) {
-        //    alert("checkDate = " + checkDate);
-        //}
-
-        //
 
         $scope.checkDate = function () {
             console.log(dateFromFile);
