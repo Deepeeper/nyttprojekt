@@ -33,17 +33,22 @@
         } else { currentDate = DEBUGCURRENTDATE; }
 
 
+
         //Reading the file at coworker startuo
-            $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
-                if (DEBUG == 1) { alert(JSON.stringify(result)); $scope.cardsDone = result; }
-            }, function (error) {
-                alert("läsfel");
-                $scope.cardsDone = 0;
-            });
+        $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
+            if (DEBUG == 1) { alert(JSON.stringify(result)); $scope.cardsDone = result; }
+        }, function (error) {
+            alert("läsfel");
+            $scope.cardsDone = 0;
+        });
 
         //if (DEBUG == 1) {
         //    alert("checkDate = " + checkDate);
         //}
+
+        var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
+        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        alert("diffDays = " + diffDays);
 
         $scope.checkDate = function () {
             console.log(dateFromFile);
