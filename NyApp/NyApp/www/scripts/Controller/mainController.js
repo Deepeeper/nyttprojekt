@@ -20,7 +20,7 @@
         $scope.removeCount = function () {
                 $cordovaFile.removeFile(cordova.file.dataDirectory, "jort.txt").then(
                     function (success) {
-                        alert("jort.txt removed");
+                        console.log(JSON.stringify(success, null, 4));
                     },
                     function (error) {
                         alert(JSON.stringify(error, null, 4));

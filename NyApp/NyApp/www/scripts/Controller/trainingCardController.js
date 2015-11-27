@@ -20,6 +20,6 @@
         }
     }
     $scope.previous = function () {
-        goBack();
+        window.history.back();
     }
 });

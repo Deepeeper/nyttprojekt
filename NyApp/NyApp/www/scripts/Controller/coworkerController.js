@@ -47,11 +47,11 @@
             if (DEBUG == 1) { alert(JSON.stringify(result)); }
         }
         function failCallback(error) {
-            alert(JSON.stringify(error, null, 4));
+            console.log(JSON.stringify(error, null, 4));
         }
 
         $scope.previous = function () {
-            goBack();
+            window.history.back();
         }
     }
 
