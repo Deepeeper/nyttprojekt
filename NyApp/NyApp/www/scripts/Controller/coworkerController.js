@@ -18,11 +18,9 @@
                 dateToStringSuccess, failCallback);
 
         $q.all([test, testt]).then(function () {
-            console.log(dateFromFile);
-            console.log(currentDate);
             var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
             var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            alert( diffDays);
+            alert(diffDays);
         })
 
         // Promise test
