@@ -18,7 +18,6 @@
             });
 
         $scope.removeCount = function () {
-            $scope.removeDate = function () {
                 $cordovaFile.removeFile(cordova.file.dataDirectory, "jort.txt").then(
                     function (success) {
                         alert("jort.txt removed");
@@ -26,7 +25,6 @@
                     function (error) {
                         alert(JSON.stringify(error, null, 4));
                     });
-            }
         }
         $scope.removeDate = function () {
             $cordovaFile.removeFile(cordova.file.dataDirectory, "date.txt").then(

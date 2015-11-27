@@ -16,11 +16,11 @@
 
 
         <a href="#/trainingCard1"><button class="buttons" ng-class="{ready: cardsDone == 0,done:  cardsDone > 0}">Träningskort 1</button></a>
-        <a href="#/trainingCard2"><button class="buttons" ng-class="{ready: cardsDone == 1, done: cardsDone > 1}" <!--ng-disabled="checkCard() < 1"-->>Träningskort 2</button></a>
-        <a href="#/trainingCard3"><button class="buttons" ng-class="{ready: cardsDone == 2, done: cardsDone > 2}" <!--ng-disabled="checkCard() < 2"-->>Träningskort 3</button></a>
-        <a href="#/trainingCard4"><button class="buttons" ng-class="{ready: cardsDone == 3, done: cardsDone > 3}" <!--ng-disabled="checkCard() < 3"-->>Träningskort 4</button></a>
-        <a href="#/trainingCard5"><button class="buttons" ng-class="{ready: cardsDone == 4, done: cardsDone > 4}" <!--ng-disabled="checkCard() < 4"-->>Träningskort 5</button></a>
-        <a href="#/trainingCard6"><button class="buttons" ng-class="{ready: cardsDone == 5, done: cardsDone > 5}" <!--ng-disabled="checkCard() < 5"-->>Träningskort 6</button></a>
+        <a href="#/trainingCard2"><button class="buttons" ng-class="{ready: cardsDone == 1, done: cardsDone > 1}" ng-disabled="cardsDone < 1">Träningskort 2</button></a>
+        <a href="#/trainingCard3"><button class="buttons" ng-class="{ready: cardsDone == 2, done: cardsDone > 2}" ng-disabled="cardsDone < 2">Träningskort 3</button></a>
+        <a href="#/trainingCard4"><button class="buttons" ng-class="{ready: cardsDone == 3, done: cardsDone > 3}" ng-disabled="cardsDone < 3">Träningskort 4</button></a>
+        <a href="#/trainingCard5"><button class="buttons" ng-class="{ready: cardsDone == 4, done: cardsDone > 4}" ng-disabled="cardsDone < 4">Träningskort 5</button></a>
+        <a href="#/trainingCard6"><button class="buttons" ng-class="{ready: cardsDone == 5, done: cardsDone > 5}" ng-disabled="cardsDone < 5">Träningskort 6</button></a>
         <!--<button id="lastest">prova las fil</button>-->
 
 
