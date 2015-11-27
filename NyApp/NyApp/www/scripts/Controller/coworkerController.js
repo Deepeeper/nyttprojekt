@@ -11,17 +11,16 @@
     function onDeviceReady() {
 
         alert("coworker Controller");
-      
             var test = $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
                 readAsTextSuccess, failCallback);
-
 
             var testt = $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
                 dateToStringSuccess, failCallback);
 
-
         $q.all([test, testt]).then(function () {
-            alert("wat");
+            var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
+            var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            alert(diffDays);
         })
 
         // Promise test
