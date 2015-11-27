@@ -3,13 +3,14 @@
     var DEBUG = 1;
     var USEDEBUGDATEFROMFILE = false;
     var USEDEBUGCURRENTDATE = false;
-    var DEBUGDATEFROMFILE = "";
-    var DEBUGCURRENTDATE = false;
+    var DEBUGDATEFROMFILE = new Date("1/1/2015");
+    var DEBUGCURRENTDATE = new Date("1/1/2015");
 
     document.addEventListener("deviceready", onDeviceReady, false);
     var currentDate;
     var dateFromFile;
     function onDeviceReady() {
+
         alert("coworker Controller");
         if (!USEDEBUGDATEFROMFILE) {
             $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(function (result) {
@@ -18,16 +19,19 @@
             }, function (error) {
                 alert("läsfel: " + error);
             });
-        }
-        $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
-            function (result) {
-                currentDate = new Date(result.value);
-                if (DEBUG == 1) { alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); }
-            },
-            function (error) {
-                alert("dateToString error: " + error);
-            });
-        document.getElementById('lastest').addEventListener('click', test, false);
+        } else { dateFromFile = DEBUGDATEFROMFILE; }
+
+        if (USEDEBUGCURRENTDATE) {
+            $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
+                function (result) {
+                    currentDate = new Date(result.value);
+                    if (DEBUG == 1) { alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); }
+                },
+                function (error) {
+                    alert("dateToString error: " + error);
+                });
+        } else { currentDate = DEBUGCURRENTDATE; }
+
 
         //Reading the file at coworker startuo
             $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
