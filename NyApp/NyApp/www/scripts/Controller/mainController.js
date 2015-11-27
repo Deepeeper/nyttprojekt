@@ -9,14 +9,33 @@
             function (error) {
                 $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
              function (result) {
-            $cordovaFile.writeFile(cordova.file.dataDirectory, "date.txt", result.value, true)
-            .then(function (success) { alert("Success vaue är" + success); });
+                 $cordovaFile.writeFile(cordova.file.dataDirectory, "date.txt", result.value, true)
+                 .then(function (success) { alert("Success vaue är" + success); });
              },
                   function (error) {
-              alert("risigt");
-              });
+                      alert();
+                  });
             });
 
-
+        $scope.removeCount = function () {
+            $scope.removeDate = function () {
+                $cordovaFile.removeFile(cordova.file.dataDirectory, "jort.txt").then(
+                    function (success) {
+                        alert("jort.txt removed");
+                    },
+                    function (error) {
+                        alert(JSON.stringify(error, null, 4));
+                    });
+            }
+        }
+        $scope.removeDate = function () {
+            $cordovaFile.removeFile(cordova.file.dataDirectory, "date.txt").then(
+                function (success) {
+                    alert("date.txt removed");
+                },
+                function (error) {
+                    alert(JSON.stringify(error, null, 4));
+                });
+        }
     }
 });
