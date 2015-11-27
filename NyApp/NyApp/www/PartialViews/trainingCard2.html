@@ -4,5 +4,7 @@
     </div>
     <div class="text-head">Träningskort 2</div>
 </div>
-<button ng-click="saveCardNumber('2')" ng-disabled="cardsDone >=2">Färdig</button>
-
+<p>This sticky footer solution is working in all major browsers, including Chrome and IE 8! It works in HTML5 and with floated 2-column layouts and we don't get overlap in resized browser windows unlike older solutions you find when you Google sticky footer. You don't need an empty push div </p>
+<div id="putContentAtBottomAndCenter">
+    <button class="doneButtons" ng-click="saveCardNumber('2')" ng-disabled="cardsDone >=2" ng-class="ready: cardsDone == 1, done: cardsDone >= 2">Färdig</button>
+</div> 
