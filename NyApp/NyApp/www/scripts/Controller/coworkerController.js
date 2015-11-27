@@ -32,11 +32,11 @@
         // ngCordova callback functions
         function readAsTextSuccess(result) {
             dateFromFile = new Date(JSON.stringify(result));
-            if (DEBUG == 1) { alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result)); }
+            if (DEBUG == 1) { /*alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result));*/ console.log("readAsTextSuccess"); }
         }
         function dateToStringSuccess(result) {
             currentDate = new Date(result.value);
-            if (DEBUG == 1) { alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); }
+            if (DEBUG == 1) { /*alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value);*/ console.log("dateToStringSuccess"); }
         }
         function failCallback(error) {
             alert(JSON.stringify(error, null, 4));
