@@ -11,14 +11,14 @@
     $scope.trainingCard4Done = function () {
         trainingCardDone(4);
     }
-    $scope.trainingCard4Read = function () {
-        readCardFile();
+    $scope.trainingCard5Done = function () {
+        trainingCardDone(5);
     }
-    $scope.trainingCard3Read = function () {
-        readCardFile();
+    $scope.trainingCard6Done = function () {
+        trainingCardDone(6);
     }
-    $scope.trainingCard2Read = function () {
-        readCardFile();
+    $scope.previous = function () {
+        goBack();
     }
     $scope.trainingCard1Read = function () {
         readCardFile();

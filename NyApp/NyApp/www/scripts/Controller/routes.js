@@ -39,5 +39,14 @@ app.config(function ($routeProvider) {
           controller: 'trainingCardController'
       })
 
+      .when('/trainingCard5', {
+          templateUrl: 'PartialViews/trainingCard5.html',
+          controller: 'trainingCardController'
+      })
+
+      .when('/trainingCard6', {
+              templateUrl: 'PartialViews/trainingCard6.html',
+              controller: 'trainingCardController'
+      })
 });
 
