@@ -1,11 +1,11 @@
 ﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $q) {
 
     // Debug toggles
-    var DEBUG = 1;
-    var USEDEBUGDATEFROMFILE = false;
-    var USEDEBUGDATECURRENT = false;
+    var DEBUG = 0;
+    var USEDEBUGDATEFROMFILE = true;
+    var USEDEBUGDATECURRENT = true;
     var DEBUGDATEFROMFILE = new Date("1/1/2015");
-    var DEBUGCURRENTDATE = new Date("1/1/2015");
+    var DEBUGCURRENTDATE = new Date("12/1/2015");
 
     //
     var currentDate;
@@ -23,7 +23,7 @@
         // Only attempt operations on Date objects after they've been succesfully fetched
         $q.all([fetchDateFromFilePromise, fetchDateFromAPIPromise]).then(function () {
             if(!USEDEBUGDATEFROMFILE) { dateFromFile = DEBUGDATEFROMFILE; }
-            if(!USEDEBUGCURRENTDATE) { currentDate = DEBUGCURRENTDATE; }
+            if(!USEDEBUGDATECURRENT) { currentDate = DEBUGCURRENTDATE; }
             var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
             dayDelta = Math.ceil(timeDiff / (1000 * 3600 * 24));
         })
