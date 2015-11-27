@@ -65,8 +65,5 @@
         }
     }
 
-    var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
-    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-    alert("diffDays = " + diffDays);
 });
 
