@@ -1,33 +1,39 @@
 ﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $q) {
 
+    // Debug toggles
     var DEBUG = 1;
     var USEDEBUGDATEFROMFILE = false;
     var USEDEBUGDATECURRENT = false;
     var DEBUGDATEFROMFILE = new Date("1/1/2015");
     var DEBUGCURRENTDATE = new Date("1/1/2015");
 
-    document.addEventListener("deviceready", onDeviceReady, false);
+    //
     var currentDate;
     var dateFromFile;
-    var dayDifferential = 0;
+    var dayDelta = 0;
 
+    document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
+        // Wrap ngCordova services in promises
+        var fetchDateFromFilePromise = $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
+            fetchDateFromFileSuccess, failCallback);
+        var fetchDateFromAPIPromise = $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
+            fetchDateFromAPISuccess, failCallback);
 
-        var readAsTextPromise = $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
-            readAsTextSuccess, failCallback);
-        var dateToStringPromise = $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
-            dateToStringSuccess, failCallback);
-
-        $q.all([readAsTextPromise, dateToStringPromise]).then(function () {
+        // Only attempt operations on Date objects after they've been succesfully fetched
+        $q.all([fetchDateFromFilePromise, fetchDateFromAPIPromise]).then(function () {
+            if(!USEDEBUGDATEFROMFILE) { dateFromFile = DEBUGDATEFROMFILE; }
+            if(!USEDEBUGCURRENTDATE) { currentDate = DEBUGCURRENTDATE; }
             var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
-            dayDifferential = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            dayDelta = Math.ceil(timeDiff / (1000 * 3600 * 24));
         })
 
-        function readAsTextSuccess(result) {
+        // Callback functions
+        function fetchDateFromFileSuccess(result) {
             dateFromFile = new Date(JSON.stringify(result));
             if (DEBUG == 1) { console.log("1"); alert("Success(rAT)!\ndateFromFile = " + dateFromFile + "\nresult = " + JSON.stringify(result)); }
         }
-        function dateToStringSuccess(result) {
+        function fetchDateFromAPISuccess(result) {
             currentDate = new Date(result.value);
             if (DEBUG == 1) { console.log("2"); alert("Success(dTS)!\ncurrentDate = " + currentDate + "\nresult.value = " + result.value); }
         }
@@ -43,10 +49,8 @@
             $scope.cardsDone = 0;
         });
 
-
         $scope.checkDate = function () {
-            alert("dayDifferntial: " + dayDifferential);
-            return dayDifferential;
+            return dayDelta;
         };
 
         $scope.checkCard = function () {
