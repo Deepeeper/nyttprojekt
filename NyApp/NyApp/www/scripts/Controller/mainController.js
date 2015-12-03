@@ -3,7 +3,7 @@
     // 16.00 = 57,600s
     // 24h = 86,400s
     var USEDEBUGSCHEDULING = true;
-    var DEBUGSCHEDULETIME = 20 * 1000; //30s
+    var DEBUGSCHEDULETIME = 30 * 1000; //30s
     var timeToSchedule = 1000 * 86400 * 4; // milliseconds * 86,400s=24h * number of days
 
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -22,8 +22,6 @@
                         var currentTime = new Date(date.value).getTime();
                         var scheduleDate = new Date(currentTime + timeToSchedule);
                     }
-                    alert("currentTime: " + currentTime);
-                    alert(scheduleDate.getHours() + " " + scheduleDate.getMinutes());
                     $cordovaLocalNotification.schedule({
                         id: 1,
                         title: 'Kort 1 schemalagt',
@@ -33,7 +31,7 @@
                             // customProperty: 'custom value'
                         }
                     }).then(function (result) {
-                        console.log("Notification scheduled to " + scheduleDate.toDateString());
+                        console.log("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
                     });
                 }, resultCallback);
             });

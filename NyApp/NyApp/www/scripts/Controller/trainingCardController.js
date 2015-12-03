@@ -26,7 +26,6 @@
         }
 
         $scope.updateSchedule = function (num) {
-            alert("ding");
             $cordovaLocalNotification.cancel(num).then(function (result) {
                 alert("Notification " + num + " avbruten");
             });
@@ -42,14 +41,15 @@
                 newNum = num + 1;
                 $cordovaLocalNotification.schedule({
                     id: newNum,
-                    title: 'Kort schemalagt' + newNum,
+                    title: 'Kort schemalagt ' + newNum,
                     text: 'Confucius say… dont let your affection give you an infection – put some protection on that erection.',
                     at: scheduleDate,
                     data: {
                         // customProperty: 'custom value'
                     }
                 }).then(function (result) {
-                    alert("kort schemalagt: " + newNum);
+                    console.log("Kort nummer " + newNnum);
+                    console.log("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
                 });
             });
 
