@@ -1,4 +1,4 @@
-﻿app.controller('mainController', function ($scope, $cordovaGlobalization, $cordovaFile) {
+﻿app.controller('mainController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification) {
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         // Check if date.txt exists. If true, do nothing, else fetch todays date and write it to the file.
