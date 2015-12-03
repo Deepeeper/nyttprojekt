@@ -106,5 +106,5 @@
   </platform>
   <vs:plugin name="cordova-plugin-globalization" version="1.0.2" />
   <vs:plugin name="cordova-plugin-file" version="3.0.0" src="C:\Users\Albin\Desktop\cordova-plugin-file-r3.0.0" />
-  <vs:plugin name="cordova-plugin-dialogs" version="1.2.0" />
+  <vs:plugin name="de.appplant.cordova.plugin.local-notification" version="0.8.2" src="C:\Users\0513430\Desktop\cordova-plugin-local-notifications-0.8.2" />
 </widget>
