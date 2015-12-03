@@ -13,7 +13,7 @@
                     $cordovaFile.writeFile(cordova.file.dataDirectory, "date.txt", date.value, true).then(resultCallback);
 
                     var currentTime = new Date(date.value).getTime();
-                    var scheduleDate = new Date(currentTime + 20 * 1000);
+                    var scheduleDate = new Date(currentTime + 2000 * 1000);
                     alert("currentTime: " + currentTime);
                     alert("scheduleDate: " + scheduleDate.getDate());
                     $cordovaLocalNotification.schedule({
