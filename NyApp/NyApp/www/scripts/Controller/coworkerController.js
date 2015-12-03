@@ -55,21 +55,20 @@
         }
 
         var now = new Date().getTime()
-        var _5_sec_from_now = new Date(now + 20 * 1000);
+        var _20_sec_from_now = new Date(now + 20 * 1000);
 
-        $scope.scheduleSingleNotification = function () {
-            $cordovaLocalNotification.schedule({
-                id: 1,
-                title: 'test',
-                text: 'test',
-                at: _5_sec_from_now,
-                data: {
-                    // customProperty: 'custom value'
-                }
-            }).then(function (result) {
-                alert("Notification schemalagd");
-            });
-        };
+        $cordovaLocalNotification.schedule({
+            id: 1,
+            title: 'test',
+            text: 'test',
+            at: _20_sec_from_now,
+            data: {
+                // customProperty: 'custom value'
+            }
+        }).then(function (result) {
+            alert("Notification schemalagd");
+        });
+
     }
 
 });
