@@ -30,8 +30,7 @@
             then(function (date) {
                 var currentTime = new Date(date.value).getTime();
                 var scheduleDate = new Date(currentTime + 20 * 1000);
-                alert("currentTime: " + currentTime);
-                alert("scheduleDate: " + scheduleDate.getDate());
+                alert("blsblsbslbasd");
                 $cordovaLocalNotification.schedule({
                     id: num+1,
                     title: 'Kort schemalagt' + (num+1),
