@@ -67,7 +67,7 @@
                     // customProperty: 'custom value'
                 }
             }).then(function (result) {
-                console.log("Notification schemalagd");
+                alert("Notification schemalagd");
             });
         };
 
