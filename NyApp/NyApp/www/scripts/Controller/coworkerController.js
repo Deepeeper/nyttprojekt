@@ -1,4 +1,4 @@
-﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q) {
+﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $q) {
 
     // Debug toggles
     var DEBUG = 1;
@@ -70,7 +70,6 @@
                 alert("Notification schemalagd");
             });
         };
-
     }
 
 });
