@@ -70,7 +70,6 @@
                 alert("Notification schemalagd");
             });
         };
-
     }
 
 });
