@@ -54,21 +54,6 @@
             window.history.back();
         }
 
-        var now = new Date().getTime()
-        var _20_sec_from_now = new Date(now + 300 * 1000);
-
-        $cordovaLocalNotification.schedule({
-            id: 1,
-            title: 'test',
-            text: 'test',
-            at: _20_sec_from_now,
-            data: {
-                // customProperty: 'custom value'
-            }
-        }).then(function (result) {
-            alert("Notification schemalagd");
-        });
-
         $scope.cancel = function () {
             $cordovaLocalNotification.cancel(1).then(function (result) {
                 alert("Notification avbruten");
