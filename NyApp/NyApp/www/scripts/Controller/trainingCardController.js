@@ -6,9 +6,8 @@
     function onDeviceReady() {
 
         $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
-            alert(JSON.stringify(result)); $scope.cardsDone = result;
+           console.log(JSON.stringify(result)); $scope.cardsDone = result;
         }, function (error) {
-            alert("läsfel");
             $scope.cardsDone = 0;
         });
 
@@ -18,7 +17,7 @@
                 $scope.cardsDone = num;
             },
         function (error) {
-            alert(JSON.stringify(error, null, 4));
+            console.log(JSON.stringify(error, null, 4));
         });
         }
 
