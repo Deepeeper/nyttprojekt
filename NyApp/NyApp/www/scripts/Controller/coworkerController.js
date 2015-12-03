@@ -69,6 +69,13 @@
             alert("Notification schemalagd");
         });
 
+        $scope.cancel = function () {
+            $cordovaLocalNotification.cancel(1).then(function (result) {
+                alert("Notification avbruten");
+            });
+        };
+
+
     }
 
 });
