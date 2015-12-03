@@ -26,7 +26,6 @@
         }
 
         $scope.updateSchedule = function (num) {
-            alert("ding");
             $cordovaLocalNotification.cancel(num).then(function (result) {
                 alert("Notification " + num + " avbruten");
             });
@@ -49,7 +48,7 @@
                         // customProperty: 'custom value'
                     }
                 }).then(function (result) {
-                    alert("kort schemalagt: " + newNum);
+                    console.log("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
                 });
             });
 

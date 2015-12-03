@@ -22,8 +22,6 @@
                         var currentTime = new Date(date.value).getTime();
                         var scheduleDate = new Date(currentTime + timeToSchedule);
                     }
-                    alert("currentTime: " + currentTime);
-                    alert(scheduleDate.getHours() + " " + scheduleDate.getMinutes());
                     $cordovaLocalNotification.schedule({
                         id: 1,
                         title: 'Kort 1 schemalagt',
@@ -33,7 +31,7 @@
                             // customProperty: 'custom value'
                         }
                     }).then(function (result) {
-                        console.log("Notification scheduled to " + scheduleDate.toDateString());
+                        console.log("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
                     });
                 }, resultCallback);
             });
