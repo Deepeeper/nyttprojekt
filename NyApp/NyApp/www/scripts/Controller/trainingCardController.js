@@ -1,4 +1,4 @@
-﻿app.controller('trainingCardController', function ($scope, $cordovaFile) {
+﻿app.controller('trainingCardController', function ($scope, $cordovaFile, $cordoveGlobalization, $cordovoLocalNotification) {
 
     var timeToSchedule = 1000 * 60 * 60 * 24 * 4;
 
