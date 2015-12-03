@@ -28,5 +28,5 @@
 </p>
 <div id="imgPosDoneButtons" ng-show="cardsDone>4"><img src="img/iconmonstr-check-mark-6-icon-48.png"></div>
 <div id="putContentAtBottomAndCenter">
-    <button class="doneButtons" ng-click="saveCardNumber('5')" ng-disabled="cardsDone >=5" ng-class="{lockedDoneButtons:cardsDone>4}">Färdig</button>
+    <button class="doneButtons" ng-click="saveCardNumber('5'); updateSchedule(5)" ng-disabled="cardsDone >=5" ng-class="{lockedDoneButtons:cardsDone>4}">Färdig</button>
 </div> 
