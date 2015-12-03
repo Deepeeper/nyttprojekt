@@ -2,7 +2,7 @@
     <div class="position-img" ng-click="previous()">
         <img class="img-head" src="img/back-white.png" />
     </div>
-    <div class="text-head">Ledarens Träningskort 1</div>
+    <div class="text-head">Träningskort 1</div>
 </div>
 <br><br>
 <p id="alignTheText">
@@ -28,5 +28,5 @@
 </p>
 <div id="imgPosDoneButtons" ng-show="cardsDone>0"><img src="img/iconmonstr-check-mark-6-icon-48.png"></div>
 <div id="putContentAtBottomAndCenter">
-    <button class="doneButtons" ng-click="saveCardNumber('1')" ng-disabled="cardsDone >=1" ng-class="{lockedDoneButtons:cardsDone>0}">Färdig</button>
+    <button class="doneButtons" ng-click="saveCardNumber('1'); updateSchedule(1)" ng-disabled="cardsDone >=1" ng-class="{lockedDoneButtons:cardsDone>0}">Färdig</button>
 </div>
