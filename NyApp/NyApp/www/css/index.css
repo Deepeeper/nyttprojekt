@@ -44,6 +44,7 @@ margin-bottom: 3%;
 }
 
 #alignTheText{
+    padding-top:30%;
     text-align:left;
     margin-left:5%;
     margin-right:5%;
@@ -110,6 +111,11 @@ margin-bottom: 3%;
     color:green;
 }
 
+#imgPos{
+    transform:scale(0.4,0.4);
+    padding:3px 0px 8px 30px;
+    position:absolute;
+}
 
 
 #centerContent{
@@ -118,13 +124,13 @@ margin-bottom: 3%;
     align-content:center;
 }
 #centerContentTrainingcard{
-    margin-top:3%;
+    padding-top:15%;
     text-align:center;
     align-content:center;
 }
 
 .header{
-
+    position:fixed;
     font-weight:bold;
     line-height:2.8em;
     width:100%;
