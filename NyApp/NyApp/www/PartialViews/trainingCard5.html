@@ -26,6 +26,7 @@
     Åklagaren hävdar att det finns ekonomiska motiv bakom båda dubbelmorden.
     – Under våren var den misstänktes ekonomiska situation mycket pressad. Jag hävdar att det ligger bakom morden, säger Pernilla Törsleff.
 </p>
+<div id="imgPosDoneButtons" ng-show="cardsDone>4"><img src="img/iconmonstr-check-mark-6-icon-48.png"></div>
 <div id="putContentAtBottomAndCenter">
-    <div id="imgPosForDoneButtons" ng-show="cardsDone>4"><img src="img/iconmonstr-check-mark-6-icon-48.png"></div><button class="doneButtons" ng-click="saveCardNumber('5')" ng-disabled="cardsDone >=5">Färdig</button>
+    <button class="doneButtons" ng-click="saveCardNumber('5')" ng-disabled="cardsDone >=5" ng-class="{lockedDoneButtons:cardsDone>4}">Färdig</button>
 </div> 

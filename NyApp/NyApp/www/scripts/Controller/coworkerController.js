@@ -44,7 +44,7 @@
         }
         function fetchCompletedCardsSuccess(result) {
             $scope.cardsDone = result;
-            if (DEBUG == 1) { alert(JSON.stringify(result)); }
+            if (DEBUG == 1) { console.log(JSON.stringify(result)); }
         }
         function failCallback(error) {
             console.log(JSON.stringify(error, null, 4));
