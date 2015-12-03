@@ -12,7 +12,7 @@
         $scope.saveCardNumber = function(num) {
                 $cordovaFile.writeFile(cordova.file.dataDirectory, "jort.txt", num, true)
                 .then(function (success) {
-                      alert("Success value är" + success);
+                      cardsDone = num;
                 },
             function (error) {
                 alert(JSON.stringify(error, null, 4));
