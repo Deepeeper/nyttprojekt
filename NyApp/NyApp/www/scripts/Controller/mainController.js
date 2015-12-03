@@ -2,7 +2,9 @@
 
     // 16.00 = 57,600s
     // 24h = 86,400s
-    var timeToSchedule = 1000 * 60 * 60 * 24 * 4;
+    var USEDEBUGSCHEDULING = true;
+    var DEBUGSCHEDULETIME = 20 * 1000; //30s
+    var timeToSchedule = 1000 * 86400 * 4; // milliseconds * 86,400s=24h * number of days
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
@@ -13,9 +15,13 @@
                 $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(function (date) {
                     $cordovaFile.writeFile(cordova.file.dataDirectory, "date.txt", date.value, true).then(resultCallback);
 
-                    // var currentTime = new Date(date.value).getTime();
-                    var currentTime = new Date().getTime();
-                    var scheduleDate = new Date(currentTime + (30 * 1000));
+                    if (USEDEBUGSCHEDULING) {
+                        var currentTime = new Date().getTime();
+                        var scheduleDate = new Date(currentTime + DEBUGSCHEDULETIME);
+                    } else {
+                        var currentTime = new Date(date.value).getTime();
+                        var scheduleDate = new Date(currentTime + timeToSchedule);
+                    }
                     alert("currentTime: " + currentTime);
                     alert(scheduleDate.getHours() + " " + scheduleDate.getMinutes());
                     $cordovaLocalNotification.schedule({
@@ -27,7 +33,7 @@
                             // customProperty: 'custom value'
                         }
                     }).then(function (result) {
-                        alert(JSON.stringify(result, null, 4));
+                        console.log("Notification scheduled to " + scheduleDate.toDateString());
                     });
                 }, resultCallback);
             });

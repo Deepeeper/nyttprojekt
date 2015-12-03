@@ -2,13 +2,15 @@
 
     // 16.00 = 57,600s
     // 24h = 86,400s
-    var timeToSchedule = 1000 * 60 * 60 * 24 * 4;
+    var USEDEBUGSCHEDULING = true;
+    var DEBUGSCHEDULETIME = 20 * 1000; //20s
+    var timeToSchedule = 1000 * (57600 + 86400) * 4; // milliseconds * (16h=57,600s + 86,400s=24h) * number of days
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         $scope.cardsDone;
         $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
-           console.log(JSON.stringify(result)); $scope.cardsDone = result;
+            console.log(JSON.stringify(result)); $scope.cardsDone = result;
         }, function (error) {
             $scope.cardsDone = 0;
         });
@@ -30,10 +32,14 @@
             });
             $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).
             then(function (date) {
-                var currentTime = new Date(date.value).getTime();
-                var scheduleDate = new Date(currentTime + 20 * 1000);
+                if (USEDEBUGSCHEDULING) {
+                    var currentTime = new Date().getTime();
+                    var scheduleDate = new Date(currentTime + DEBUGSCHEDULETIME);
+                } else {
+                    var currentTime = new Date(date.value).getTime();
+                    var scheduleDate = new Date(currentTime + timeToSchedule);
+                }
                 newNum = num + 1;
-                alert("blsblsbslbasd");
                 $cordovaLocalNotification.schedule({
                     id: newNum,
                     title: 'Kort schemalagt' + newNum,
