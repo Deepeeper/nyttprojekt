@@ -5,7 +5,7 @@
     var USEDEBUGDATEFROMFILE = true;
     var USEDEBUGDATECURRENT = true;
     var DEBUGDATEFROMFILE = new Date("1/1/2015");
-    var DEBUGCURRENTDATE = new Date("12/1/2015");
+    var DEBUGCURRENTDATE = new Date("1/11/2015");
 
     // asdf
     var currentDate;
