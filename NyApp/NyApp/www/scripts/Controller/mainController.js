@@ -1,7 +1,11 @@
 ﻿app.controller('mainController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification) {
+
+
+    var timeToSchedule = 1000 * 60 * 60 * 24 * 4;
+
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-        // Check if date.txt exists. If true, do nothing, else fetch todays date and write it to the file.
+        // Check if date.txt exists. If true, do nothing, else fetch todays date, write it to the file and schedule a notification.
         $cordovaFile.checkFile(cordova.file.dataDirectory, "date.txt").then(
             resultCallback,
             function (error) {
@@ -10,7 +14,7 @@
 
                     var currentTime = new Date(date.value).getTime();
                     var scheduleDate = new Date(currentTime + 20 * 1000);
-                    alert("currentDate: " + date.value);
+                    alert("currentTime: " + currentTime);
                     alert("scheduleDate: " + scheduleDate.getDate());
                     $cordovaLocalNotification.schedule({
                         id: 1,
