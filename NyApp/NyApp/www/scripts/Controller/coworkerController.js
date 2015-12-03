@@ -1,4 +1,4 @@
-﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $q) {
+﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q) {
 
     // Debug toggles
     var DEBUG = 1;
@@ -53,6 +53,24 @@
         $scope.previous = function () {
             window.history.back();
         }
+
+        var now = new Date().getTime()
+        var _5_sec_from_now = new Date(now + 20 * 1000);
+
+        $scope.scheduleSingleNotification = function () {
+            $cordovaLocalNotification.schedule({
+                id: 1,
+                title: 'test',
+                text: 'test',
+                at: _5_sec_from_now,
+                data: {
+                    // customProperty: 'custom value'
+                }
+            }).then(function (result) {
+                console.log("Notification schemalagd");
+            });
+        };
+
     }
 
 });
