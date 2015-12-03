@@ -1,6 +1,7 @@
 ﻿app.controller('mainController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification) {
 
-
+    // 16.00 = 57,600s
+    // 24h = 86,400s
     var timeToSchedule = 1000 * 60 * 60 * 24 * 4;
 
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -12,10 +13,11 @@
                 $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(function (date) {
                     $cordovaFile.writeFile(cordova.file.dataDirectory, "date.txt", date.value, true).then(resultCallback);
 
-                    var currentTime = new Date(date.value).getTime();
-                    var scheduleDate = new Date(currentTime + 2000 * 1000);
+                    // var currentTime = new Date(date.value).getTime();
+                    var currentTime = new Date().getTime();
+                    var scheduleDate = new Date(currentTime + (30 * 1000));
                     alert("currentTime: " + currentTime);
-                    alert("scheduleDate: " + scheduleDate.getDate());
+                    alert(scheduleDate.getHours() + " " + scheduleDate.getMinutes());
                     $cordovaLocalNotification.schedule({
                         id: 1,
                         title: 'Kort 1 schemalagt',
