@@ -1,4 +1,7 @@
 ﻿app.controller('trainingCardController', function ($scope, $cordovaFile) {
+
+    var timeToSchedule = 1000 * 60 * 60 * 24 * 4;
+
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
 
@@ -32,7 +35,7 @@
                 $cordovaLocalNotification.schedule({
                     id: num+1,
                     title: 'Kort schemalagt' + (num+1),
-                    text: 'pigeon cum does not taste bitter',
+                    text: 'Confucius say… dont let your affection give you an infection – put some protection on that erection.',
                     at: scheduleDate,
                     data: {
                         // customProperty: 'custom value'
