@@ -100,7 +100,7 @@
   </Target>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties />
+      <UserProperties package_1json__JSONSchema="http://json.schemastore.org/grunt-watch-task" />
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="_apacheCordovaProjectSourceItems.Targets" Condition="Exists('_apacheCordovaProjectSourceItems.Targets')" />
