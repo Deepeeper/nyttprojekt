@@ -27,5 +27,5 @@
     – Under våren var den misstänktes ekonomiska situation mycket pressad. Jag hävdar att det ligger bakom morden, säger Pernilla Törsleff.
 </p>
 <div id="putContentAtBottomAndCenter">
-    <button class="doneButtons" ng-click="saveCardNumber('2')" ng-disabled="cardsDone >=2" ng-class="{ready: cardsDone == 1, done: cardsDone >= 2}">Färdig</button>
+    <div id="imgPosForDoneButtons" ng-show="cardsDone>1"><img src="img/iconmonstr-check-mark-6-icon-48.png"></div><button class="doneButtons" ng-click="saveCardNumber('2')" ng-disabled="cardsDone >=2" ng-class="{ready: cardsDone == 1, done: cardsDone >= 2}">Färdig</button>
 </div> 
