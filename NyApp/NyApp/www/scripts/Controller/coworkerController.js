@@ -55,7 +55,7 @@
         }
 
         var now = new Date().getTime()
-        var _20_sec_from_now = new Date(now + 20 * 1000);
+        var _20_sec_from_now = new Date(now + 300 * 1000);
 
         $cordovaLocalNotification.schedule({
             id: 1,
