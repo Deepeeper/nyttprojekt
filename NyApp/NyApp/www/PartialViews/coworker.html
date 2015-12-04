@@ -13,4 +13,15 @@
         <div id="imgPos" ng-show="cardsDone>4"><img src="img/iconmonstr-check-mark-6-icon-48.png"></div> <div id="imgPos" ng-show="cardsDone<4 || dayDelta < 28"><img src="img/iconmonstr-lock-3-icon-48.png"></div> <a href="#/trainingCard5"><button class="buttons" ng-class="{locked: cardsDone < 4 || dayDelta < 28}" ng-disabled="cardsDone < 4 || dayDelta < 28">Träningskort 5</button></a>
         <div id="imgPos" ng-show="cardsDone>5"><img src="img/iconmonstr-check-mark-6-icon-48.png"></div> <div id="imgPos" ng-show="cardsDone<5 || dayDelta < 35"><img src="img/iconmonstr-lock-3-icon-48.png"></div> <a href="#/trainingCard6"><button class="buttons" ng-class="{locked: cardsDone < 5 || dayDelta < 35}" ng-disabled="cardsDone < 5 || dayDelta < 35">Träningskort 6</button></a>
         <!--<button ng-click="cancel()">Avbryt</button>-->
+        <br />
+        d: <input type="text" data-ng-model="d" /> {{ d }}
+        <br />
+        c: <input type="text" data-ng-model="c" /> {{ c }}
+        <br />
+        c*7 {{ c*7 }}
+        <br />
+        c*7< d: {{ c*7 < d ? true : false }}
+        <br />  
+        {{g()}}
+
     </div>
