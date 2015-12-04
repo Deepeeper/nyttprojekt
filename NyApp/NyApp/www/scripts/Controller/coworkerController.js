@@ -16,6 +16,7 @@
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         // Wrap the ngCordova services for file access and date fetching in promises
+        // TODO: Make into service
         var fetchDateFromFilePromise = $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
             fetchDateFromFileSuccess, failCallback);
         var fetchDateFromAPIPromise = $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
@@ -60,7 +61,16 @@
             });
         };
 
-
+        $scope.d;
+        $scope.c;
+        $scope.g = function () {
+            if (parseInt($scope.c) * 7 <= parseInt($scope.d)) {
+                return parseInt($scope.d) + parseInt(4);
+            }
+            else {
+                return parseInt($scope.d) + parseInt(11 - parseInt($scope.d % 7));
+            }
+        }
     }
 
 });
