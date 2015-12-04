@@ -2,6 +2,7 @@
 
     // 16.00 = 57,600s
     // 24h = 86,400s
+    var DEBUG = 0;
     var USEDEBUGSCHEDULING = true;
     var DEBUGSCHEDULETIME = 20 * 1000; //20s
     var USEDEBUGDATEFROMFILE = true;
