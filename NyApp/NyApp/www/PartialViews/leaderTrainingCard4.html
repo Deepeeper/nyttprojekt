@@ -2,7 +2,7 @@
     <div class="position-img" ng-click="previous()">
         <img class="img-head" src="img/back-white.png" />
     </div>
-    <div class="text-head">Träningskort 2</div>
+    <div class="text-head">Träningskort 4</div>
 </div>
 <br><br>
 <p id="alignTheText">
@@ -26,7 +26,8 @@
     Åklagaren hävdar att det finns ekonomiska motiv bakom båda dubbelmorden.
     – Under våren var den misstänktes ekonomiska situation mycket pressad. Jag hävdar att det ligger bakom morden, säger Pernilla Törsleff.
 </p>
-<div id="imgPosDoneButtons" ng-show="cardsDone>1"><img src="img/iconmonstr-check-mark-6-icon-48.png"></div>
+<div id="imgPosDoneButtons" ng-show="cardsDone>3"><img src="img/iconmonstr-check-mark-6-icon-48.png"></div>
 <div id="putContentAtBottomAndCenter">
-   <button class="doneButtons" ng-click="saveCardNumber('2'); updateSchedule(2)" ng-disabled="cardsDone >=2" ng-class="{lockedDoneButtons:cardsDone>1}">Färdig</button>
-</div> 
+    <button class="doneButtons" ng-click="saveCardNumber('4'); updateSchedule(4)" ng-disabled="cardsDone >=4" ng-class="{lockedDoneButtons:cardsDone>3}">Färdig</button>
+</div>
+

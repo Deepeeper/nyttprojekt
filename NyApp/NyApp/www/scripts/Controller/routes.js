@@ -9,8 +9,8 @@ app.config(function ($routeProvider) {
       })
 
      .when('/leader', {
-          templateUrl: 'PartialViews/leader.html',
-          controller: 'leaderController'
+         templateUrl: 'PartialViews/leader.html',
+         controller: 'coworkerController'
 
      })
 
@@ -20,8 +20,8 @@ app.config(function ($routeProvider) {
     })
 
         .when('/trainingCard1', {
-        templateUrl: 'PartialViews/trainingCard1.html',
-        controller: 'trainingCardController'
+            templateUrl: 'PartialViews/trainingCard1.html',
+            controller: 'trainingCardController'
         })
 
       .when('/trainingCard2', {
@@ -45,8 +45,38 @@ app.config(function ($routeProvider) {
       })
 
       .when('/trainingCard6', {
-              templateUrl: 'PartialViews/trainingCard6.html',
-              controller: 'trainingCardController'
+          templateUrl: 'PartialViews/trainingCard6.html',
+          controller: 'trainingCardController'
+      })
+
+      .when('/leaderTrainingCard1', {
+          templateUrl: 'PartialViews/leaderTrainingCard1.html',
+          controller: 'trainingCardController'
+      })
+
+      .when('/leaderTrainingCard2', {
+          templateUrl: 'PartialViews/leaderTrainingCard2.html',
+          controller: 'trainingCardController'
+      })
+
+      .when('/leaderTrainingCard3', {
+          templateUrl: 'PartialViews/leaderTrainingCard3.html',
+          controller: 'trainingCardController'
+      })
+
+      .when('/leaderTrainingCard4', {
+          templateUrl: 'PartialViews/leaderTrainingCard4.html',
+          controller: 'trainingCardController'
+      })
+
+      .when('/leaderTrainingCard5', {
+          templateUrl: 'PartialViews/leaderTrainingCard5.html',
+          controller: 'trainingCardController'
+      })
+
+      .when('/leaderTrainingCard6', {
+          templateUrl: 'PartialViews/leaderTrainingCard6.html',
+          controller: 'trainingCardController'
       })
 });
 

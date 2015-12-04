@@ -29,7 +29,7 @@
         // TODO: Lägg till knappar i alla kort
         $scope.updateSchedule = function (num) {
             $cordovaLocalNotification.cancel(num).then(function (result) {
-                alert("Notification " + num + " avbruten");
+                console.log("Notification " + num + " avbruten");
             });
             $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).
             then(function (date) {
@@ -44,13 +44,13 @@
                 $cordovaLocalNotification.schedule({
                     id: newNum,
                     title: 'Kort schemalagt ' + newNum,
-                    text: 'Confucius say… dont let your affection give you an infection – put some protection on that erection.',
+                    text: 'Test TCController',
                     at: scheduleDate,
                     data: {
                         // customProperty: 'custom value'
                     }
                 }).then(function (result) {
-                    console.log("Kort nummer " + newNnum);
+                    console.log("Kort nummer " + newNum);
                     console.log("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
                 });
             });

@@ -25,7 +25,7 @@
                     $cordovaLocalNotification.schedule({
                         id: 1,
                         title: 'Kort 1 schemalagt',
-                        text: 'pigeon cum does not taste bitter',
+                        text: 'test main',
                         at: scheduleDate,
                         data: {
                             // customProperty: 'custom value'
