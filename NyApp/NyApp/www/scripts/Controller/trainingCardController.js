@@ -25,6 +25,8 @@
         });
         }
 
+        // TODO: Fixa för sista kortet
+        // TODO: Lägg till knappar i alla kort
         $scope.updateSchedule = function (num) {
             $cordovaLocalNotification.cancel(num).then(function (result) {
                 alert("Notification " + num + " avbruten");
