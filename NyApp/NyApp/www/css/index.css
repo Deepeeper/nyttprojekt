@@ -93,7 +93,7 @@ margin-bottom: 3%;
 }
 
 .lockedDoneButtons{
-    border-top-color: #819BCB;
+border-top-color: #819BCB;
 border-right-color: #819BCB;
 border-bottom-color: #a13c3c;
 border-left-color: #819BCB;
@@ -158,23 +158,31 @@ margin-bottom: 3%;
 .ready {
     color:red;
 }
-
 .done {
     color:green;
 }
-
+.lock{
+    margin-top:35%;
+    width:40%;
+    height:40%;
+}
+.checkmark{
+    margin-top:35%;
+    width:40%;
+    height:40%;
+}
+.checkmarkTC{
+    margin-left:25%;
+    width:8%;
+    height:5%;
+    position:absolute;
+}
 #imgPos{
-    transform:scale(0.4,0.4);
-    padding:3px 0px 8px 30px;
-    position:absolute;
+   margin-left:4%;
+   width:16%;
+   height:10%;
+   position: absolute;
 }
-#imgPosDoneButtons{
-    transform:scale(0.8,0.8);
-    position:absolute;
-    padding-left:20%;
-    margin-top:-2%;
-}
-
 #centerContent{
     margin-top:5%;
     text-align:center;
@@ -185,7 +193,6 @@ margin-bottom: 3%;
     text-align:center;
     align-content:center;
 }
-
 .header{
     position:fixed;
     font-weight:bold;
