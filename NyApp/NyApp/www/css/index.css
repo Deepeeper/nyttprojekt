@@ -52,7 +52,7 @@ border-width: 0px 0px 7px 0px;
 border-style: solid; 
 -webkit-border-radius: 0px; 
 -moz-border-radius: 0px;
-border-radius: 10px;
+border-radius: 4px;
 font-size:200%;
 font-family:arial, helvetica, sans-serif; 
 padding: 10px 10px 10px 10px; 
@@ -78,19 +78,10 @@ margin-bottom: 3%;
  background-color: #E40A0A; background-image: -webkit-gradient(linear, left top, left bottom, from(#E40A0A), to(#9F0202));
  background-image: -webkit-linear-gradient(top, #E40A0A, #9F0202);
  background-image: -moz-linear-gradient(top, #E40A0A, #9F0202);
- /*background-image: -ms-linear-gradient(top, #E40A0A, #9F0202);*/
  background-image: -o-linear-gradient(top, #E40A0A, #9F0202);
  background-image: linear-gradient(to bottom, #E40A0A, #9F0202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#E40A0A, endColorstr=#9F0202);
 }
-.buttons:visited{
- border-top-color: #819BCB;border-right-color: #819BCB;border-bottom-color: #F53D68;border-left-color: #819BCB;border-width: 0px 0px 7px 0px;border-style: solid;
- background-color: #E40A0A; background-image: -webkit-gradient(linear, left top, left bottom, from(#E40A0A), to(#9F0202));
- background-image: -webkit-linear-gradient(top, #E40A0A, #9F0202);
- background-image: -moz-linear-gradient(top, #E40A0A, #9F0202);
- /*background-image: -ms-linear-gradient(top, #E40A0A, #9F0202);*/
- background-image: -o-linear-gradient(top, #E40A0A, #9F0202);
- background-image: linear-gradient(to bottom, #E40A0A, #9F0202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#E40A0A, endColorstr=#9F0202);
-}
+
 
 .lockedDoneButtons{
     border-top-color: #819BCB;
@@ -134,7 +125,7 @@ border-width: 0px 0px 7px 0px;
 border-style: solid; 
 -webkit-border-radius: 0px; 
 -moz-border-radius: 0px;
-border-radius: 10px;
+border-radius: 4px;
 font-size:200%;
 font-family:arial, helvetica, sans-serif; 
 padding: 10px 10px 10px 10px; 
