@@ -203,11 +203,20 @@ margin-bottom: 3%;
     background-color:#ab0009;
     margin-top:0px;
 }
-#alignTheText{
-    /*padding-top:10%;*/
-    text-align:left;
-    margin-left:5%;
-    margin-right:5%;
+#alignTheText {
+    border: 1px solid #EEEEEE;
+    box-shadow: 1px 1px 0 #DDDDDD;
+    display: block;
+    font-family: 'Times New Roman',sans-serif;
+    font-size: 22px;
+    line-height: 30px;
+    margin: 2% auto;
+    padding-left:2%;
+    height: 100%;
+    width: 95%;
+    background-image: -moz-linear-gradient(top, transparent, transparent 29px,#E7EFF8 0px); 
+    background-image: -webkit-linear-gradient(top, transparent, transparent 29px,#E7EFF8 0);
+    background-size: 100% 30px;
 }
 
 .text-head{
