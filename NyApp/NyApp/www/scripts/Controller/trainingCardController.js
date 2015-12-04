@@ -78,10 +78,10 @@
             var scheduleDate;
 
             if ($scope.cardsDone * 7 <= dayDelta) {
-                scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * 86400 * 1000) + 4 * dayInMs);
+                scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * 86400 * 1000) + 4 * dayInMS);
                 console.log("scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * 86400 * 1000) + 4 * dayInMs)");
             } else {
-                scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * 86400 * 1000) + (11 - dayDelta % 7) * dayInMs);
+                scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * 86400 * 1000) + (11 - dayDelta % 7) * dayInMS);
                 console.log("scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * 86400 * 1000) + (11 - dayDelta % 7) * dayInMs);");
             }
 
