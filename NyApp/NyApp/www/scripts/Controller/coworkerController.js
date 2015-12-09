@@ -5,7 +5,7 @@
     var USEDEBUGDATEFROMFILE = true;
     var USEDEBUGDATECURRENT = true;
     var DEBUGDATEFROMFILE = new Date("1/1/2015");
-    var DEBUGCURRENTDATE = new Date("1/10/2015");
+    var DEBUGCURRENTDATE = new Date("3/1/2015");
 
     // asdf
     var currentDate;
@@ -72,54 +72,14 @@
             }
         }
         /***************LEADER**************************/
-        $scope.changeViewLeaderCard1 = function (view) {
-            $location.path('/leaderTrainingCard1');
-        }
-        $scope.changeViewLeaderCard2 = function (view) {
-            $location.path('/leaderTrainingCard2');
-        }
-        $scope.changeViewLeaderCard3 = function (view) {
-            $location.path('/leaderTrainingCard3');
-        }
-        $scope.changeViewLeaderCard4 = function (view) {
-            $location.path('/leaderTrainingCard4');
-        }
-        $scope.changeViewLeaderCard5 = function (view) {
-            $location.path('/leaderTrainingCard5');
-        }
-        $scope.changeViewLeaderCard6 = function (view) {
-            $location.path('/leaderTrainingCard6');
+        $scope.changeViewLeaderCard = function (view) {
+            $location.path(view);
         }
         /***************COWORKER***********************/
-        $scope.changeViewCoworkerCard1 = function (view) {
-            $location.path('/trainingCard1');
+        $scope.changeViewCoworkerCard = function (view) {
+            $location.path(view);
         }
-        $scope.changeViewCoworkerCard2 = function (view) {
-            $location.path('/trainingCard2');
-        }
-        $scope.changeViewCoworkerCard3 = function (view) {
-            $location.path('/trainingCard3');
-        }
-        $scope.changeViewCoworkerCard4 = function (view) {
-            $location.path('/trainingCard4');
-        }
-        $scope.changeViewCoworkerCard5 = function (view) {
-            $location.path('/trainingCard5');
-        }
-        $scope.changeViewCoworkerCard6 = function (view) {
-            alert(view);
-            if($scope.cardsDone < 5){
-                alert("Klara tidigare kort");
-            }
-            else if($scope.dayDelta < 35){
-                alert("Låses upp om x dagar");
-            }
-            else{
-                $location.path('/trainingCard6');
-            }
         
-
-        }
     }
 
 });
