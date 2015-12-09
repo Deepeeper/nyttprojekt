@@ -71,12 +71,13 @@
                 return parseInt($scope.d) + parseInt(11 - parseInt($scope.d % 7));
             }
         }
-        $scope.changeView = function (view, x, y) {
-            if($scope.cardsDone < x){
-                confirm("Du måste låsa upp kort");
+        $scope.changeView = function (view, cardControl, dateControl) {
+            if($scope.cardsDone < cardControl){
+                //http://t4t5.github.io/sweetalert/
+                swal("Låses upp när tidigare kort är avklarade.")
             }
-            else if ($scope.dayDelta < y) {
-                confirm("Låses upp om "+  +" dagar");
+            else if ($scope.dayDelta < dateControl) {
+                swal("Låses upp om "+ $scope.dayDelta +" dagar");
             }
             else {
                 $location.path(view);
