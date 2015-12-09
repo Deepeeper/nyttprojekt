@@ -5,7 +5,7 @@
     var USEDEBUGDATEFROMFILE = true;
     var USEDEBUGDATECURRENT = true;
     var DEBUGDATEFROMFILE = new Date("1/1/2015");
-    var DEBUGCURRENTDATE = new Date("3/1/2015");
+    var DEBUGCURRENTDATE = new Date("1/10/2015");
 
     // asdf
     var currentDate;
@@ -107,9 +107,19 @@
             $location.path('/trainingCard5');
         }
         $scope.changeViewCoworkerCard6 = function (view) {
-            $location.path('/trainingCard6');
-        }
+            alert(view);
+            if($scope.cardsDone < 5){
+                alert("Klara tidigare kort");
+            }
+            else if($scope.dayDelta < 35){
+                alert("Låses upp om x dagar");
+            }
+            else{
+                $location.path('/trainingCard6');
+            }
         
+
+        }
     }
 
 });
