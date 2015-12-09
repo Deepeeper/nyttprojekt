@@ -13,7 +13,37 @@ app.config(function ($routeProvider) {
          controller: 'coworkerController'
 
      })
-
+        /***********************************************/
+        /*                 Testitest                   */
+     .when('/ledareTest', {
+        templateUrl: 'PartialViews/ledareTest.html',
+        controller: 'coworkerController'
+     })
+        .when('/leaderTrainingCard1Test', {
+            templateUrl: 'PartialViews/leaderTrainingCard1Test.html',
+            controller: 'trainingCardController'
+        })
+        .when('/leaderTrainingCard2Test', {
+            templateUrl: 'PartialViews/leaderTrainingCard2Test.html',
+            controller: 'trainingCardController'
+        })
+        .when('/leaderTrainingCard3Test', {
+            templateUrl: 'PartialViews/leaderTrainingCard3Test.html',
+            controller: 'trainingCardController'
+        })
+        .when('/leaderTrainingCard4Test', {
+            templateUrl: 'PartialViews/leaderTrainingCard4Test.html',
+            controller: 'trainingCardController'
+        })
+        .when('/leaderTrainingCard5Test', {
+            templateUrl: 'PartialViews/leaderTrainingCard5Test.html',
+            controller: 'trainingCardController'
+        })
+        .when('/leaderTrainingCard6Test', {
+            templateUrl: 'PartialViews/leaderTrainingCard6Test.html',
+            controller: 'trainingCardController'
+        })
+        /****************************************************/
     .when('/coworker', {
         templateUrl: 'PartialViews/coworker.html',
         controller: 'coworkerController'

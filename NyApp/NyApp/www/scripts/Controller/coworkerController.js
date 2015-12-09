@@ -1,4 +1,4 @@
-﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q) {
+﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, $location) {
 
     // Debug toggles
     var DEBUG = 1;
@@ -71,6 +71,28 @@
                 return parseInt($scope.d) + parseInt(11 - parseInt($scope.d % 7));
             }
         }
+        /*****************************************************************/
+        /*                       TestilitestTest                         */
+        //Har lagt till $location i app.controller
+        $scope.changeWiew1 = function (view) {
+            $location.path('/leaderTrainingCard1Test');
+        }
+        $scope.changeWiew2 = function (view) {
+            $location.path('/leaderTrainingCard2Test');
+        }
+        $scope.changeWiew3 = function (view) {
+            $location.path('/leaderTrainingCard3Test');
+        }
+        $scope.changeWiew4 = function (view) {
+            $location.path('/leaderTrainingCard4Test');
+        }
+        $scope.changeWiew5 = function (view) {
+            $location.path('/leaderTrainingCard5Test');
+        }
+        $scope.changeWiew6 = function (view) {
+            $location.path('/leaderTrainingCard6Test');
+        }
+        /****************************************************************/
     }
 
 });
