@@ -5,7 +5,7 @@
     var USEDEBUGDATEFROMFILE = true;
     var USEDEBUGDATECURRENT = true;
     var DEBUGDATEFROMFILE = new Date("1/1/2015");
-    var DEBUGCURRENTDATE = new Date("3/1/2015");
+    var DEBUGCURRENTDATE = new Date("1/13/2015");
 
     // asdf
     var currentDate;
@@ -71,12 +71,16 @@
                 return parseInt($scope.d) + parseInt(11 - parseInt($scope.d % 7));
             }
         }
-        $scope.changeView = function (view) {
-            //$location.path(view);
-            //http://t4t5.github.io/sweetalert/
-            swal(
-                "Bra Jobbat!", "Eller inte Albin", "success"
-            )
+        $scope.changeView = function (view, x, y) {
+            if($scope.cardsDone < x){
+                confirm("Du måste låsa upp kort");
+            }
+            else if ($scope.dayDelta < y) {
+                confirm("Låses upp om "+  +" dagar");
+            }
+            else {
+                $location.path(view);
+            }
         }
         
     }
