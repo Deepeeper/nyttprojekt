@@ -13,6 +13,9 @@
         <div id="imgPos" ng-show="cardsDone>4"><img class="checkmark" src="img/checkmark.png"></div> <div id="imgPos" ng-show="cardsDone<4 || dayDelta < 28"><img class="lock" src="img/locked.png"></div> <a href="#/trainingCard5"><button class="buttons" ng-class="{locked: cardsDone < 4 || dayDelta < 28}" ng-disabled="cardsDone < 4 || dayDelta < 28">Träningskort 5</button></a>
         <div id="imgPos" ng-show="cardsDone>5"><img class="checkmark" src="img/checkmark.png"></div> <div id="imgPos" ng-show="cardsDone<5 || dayDelta < 35"><img class="lock" src="img/locked.png"></div> <button class="buttons" ng-class="{locked: cardsDone < 5 || dayDelta < 35}" ng-click="test();"><!--ng-disabled="cardsDone < 5 || dayDelta < 35"-->Träningskort 6</button>
         <!--<button ng-click="cancel()">Avbryt</button>-->
+        
+        
+        
         <br />
         d: <input type="text" data-ng-model="d" /> {{ d }}
         <br />
