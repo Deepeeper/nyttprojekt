@@ -74,23 +74,23 @@
         /*****************************************************************/
         /*                       TestilitestTest                         */
         //Har lagt till $location i app.controller
-        $scope.changeWiew1 = function (view) {
-            $location.path('/leaderTrainingCard1Test');
+        $scope.changeViewLeaderCard1 = function (view) {
+            $location.path('/leaderTrainingCard1');
         }
-        $scope.changeWiew2 = function (view) {
-            $location.path('/leaderTrainingCard2Test');
+        $scope.changeViewLeaderCard2 = function (view) {
+            $location.path('/leaderTrainingCard2');
         }
-        $scope.changeWiew3 = function (view) {
-            $location.path('/leaderTrainingCard3Test');
+        $scope.changeViewLeaderCard3 = function (view) {
+            $location.path('/leaderTrainingCard3');
         }
-        $scope.changeWiew4 = function (view) {
-            $location.path('/leaderTrainingCard4Test');
+        $scope.changeViewLeaderCard4 = function (view) {
+            $location.path('/leaderTrainingCard4');
         }
-        $scope.changeWiew5 = function (view) {
-            $location.path('/leaderTrainingCard5Test');
+        $scope.changeViewLeaderCard5 = function (view) {
+            $location.path('/leaderTrainingCard5');
         }
-        $scope.changeWiew6 = function (view) {
-            $location.path('/leaderTrainingCard6Test');
+        $scope.changeViewLeaderCard6 = function (view) {
+            $location.path('/leaderTrainingCard6');
         }
         /****************************************************************/
     }

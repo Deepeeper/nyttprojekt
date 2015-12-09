@@ -51,12 +51,12 @@
             console.log(JSON.stringify(result, null, 4));
         }
 
-        /*****************************************************************/
-        /*                       TestilitestTest                         */
-        //Har lagt till $location i app.controller
-        $scope.changeView = function (view) {
-            $location.path('/ledareTest');
+        $scope.changeViewLeader = function (view) {
+            $location.path('/leader');
         }
-        /****************************************************************/
+        $scope.changeViewCoworker = function (view) {
+            $location.path('/coworker');
+        }
+
     }
 });
