@@ -5,7 +5,6 @@
     <div class="text-head">Träningskort 1</div>
     </div>
     <br><br>
-    
     <p id="alignTheText">
     En stor del av den första förmiddagen av rättegången mot den 51-årige finansmannen som misstänks för fyra mord och två mordbränder ägnades åt vad mannen gjort den 27 maj i år.
     Då mördades det äldre paret i Norrahammar utanför Jönköping. 51-åringen har erkänt att han dödat dem och anlagt en brand för att dölja sina spår.
@@ -27,8 +26,7 @@
     Åklagaren hävdar att det finns ekonomiska motiv bakom båda dubbelmorden.
     – Under våren var den misstänktes ekonomiska situation mycket pressad. Jag hävdar att det ligger bakom morden, säger Pernilla Törsleff.
     </p>
-   
-<div id="imgPosDoneButtons" ng-show="cardsDone>0"><img src="img/iconmonstr-check-mark-6-icon-48.png"></div> 
+<div ng-show="cardsDone>0"><img class="checkmarkTC" src="img/checkmark.png"></div> 
     <div id="putContentAtBottomAndCenter">
         <button class="doneButtons" ng-click="saveCardNumber('1'); updateSchedule(1)" ng-disabled="cardsDone >=1"  ng-class="{lockedDoneButtons:cardsDone>0}">Färdig</button>
     </div>
