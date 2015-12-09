@@ -1,29 +1,25 @@
-﻿
-app.config(function ($routeProvider) {
+﻿app.config(function ($routeProvider) {
     $routeProvider
-
       .when('/', {
-          templateUrl: 'PartialViews/main.html',
-          controller: 'mainController'
-
+            templateUrl: 'PartialViews/main.html',
+            controller: 'mainController'
       })
 
-     .when('/leader', {
-         templateUrl: 'PartialViews/leader.html',
-         controller: 'coworkerController'
+      .when('/leader', {
+          templateUrl: 'PartialViews/leader.html',
+          controller: 'coworkerController'
+      })
 
-     })
+      .when('/coworker', {
+          templateUrl: 'PartialViews/coworker.html',
+          controller: 'coworkerController'
+      })
 
-    .when('/coworker', {
-        templateUrl: 'PartialViews/coworker.html',
-        controller: 'coworkerController'
-    })
-
-        .when('/trainingCard1', {
-            templateUrl: 'PartialViews/trainingCard1.html',
-            controller: 'trainingCardController'
-        })
-
+      .when('/trainingCard1', {
+          templateUrl: 'PartialViews/trainingCard1.html',
+          controller: 'trainingCardController'
+      })
+      
       .when('/trainingCard2', {
           templateUrl: 'PartialViews/trainingCard2.html',
           controller: 'trainingCardController'
