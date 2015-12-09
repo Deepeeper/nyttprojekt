@@ -71,7 +71,10 @@
                 return parseInt($scope.d) + parseInt(11 - parseInt($scope.d % 7));
             }
         }
+        $scope.test = function () {
+            alert("hej");
+        }
+        }
     }
-
-});
+);
 
