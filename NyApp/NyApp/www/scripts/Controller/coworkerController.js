@@ -72,7 +72,11 @@
             }
         }
         $scope.changeView = function (view) {
-            $location.path(view);
+            //$location.path(view);
+            //http://t4t5.github.io/sweetalert/
+            swal(
+                "Bra Jobbat!", "Eller inte Albin", "success"
+            )
         }
         
     }
