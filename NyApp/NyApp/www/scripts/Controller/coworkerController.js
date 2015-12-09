@@ -71,12 +71,7 @@
                 return parseInt($scope.d) + parseInt(11 - parseInt($scope.d % 7));
             }
         }
-        /***************LEADER**************************/
-        $scope.changeViewLeaderCard = function (view) {
-            $location.path(view);
-        }
-        /***************COWORKER***********************/
-        $scope.changeViewCoworkerCard = function (view) {
+        $scope.changeView = function (view) {
             $location.path(view);
         }
         
