@@ -8,7 +8,7 @@
     var USEDEBUGDATEFROMFILE = true;
     var USEDEBUGDATECURRENT = true;
     var DEBUGDATEFROMFILE = new Date("1/1/2015");
-    var DEBUGCURRENTDATE = new Date("1/10/2015");
+    var DEBUGCURRENTDATE = new Date("1/13/2015");
 
     var timeToSchedule = 1000 * 57600; // 16h
     var dayInMS = 1000 * 86400; // 24h
