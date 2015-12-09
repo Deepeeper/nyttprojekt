@@ -5,7 +5,7 @@
     var USEDEBUGDATEFROMFILE = true;
     var USEDEBUGDATECURRENT = true;
     var DEBUGDATEFROMFILE = new Date("1/1/2015");
-    var DEBUGCURRENTDATE = new Date("1/2/2015");
+    var DEBUGCURRENTDATE = new Date("3/1/2015");
 
     // asdf
     var currentDate;
@@ -75,21 +75,27 @@
         /*                       TestilitestTest                         */
         //Har lagt till $location i app.controller
         $scope.changeWiew1 = function (view) {
+            alert("1");
             $location.path('/leaderTrainingCard1Test');
         }
         $scope.changeWiew2 = function (view) {
+            alert("2");
             $location.path('/leaderTrainingCard2Test');
         }
         $scope.changeWiew3 = function (view) {
+            alert("3");
             $location.path('/leaderTrainingCard3Test');
         }
         $scope.changeWiew4 = function (view) {
+            alert("4");
             $location.path('/leaderTrainingCard4Test');
         }
         $scope.changeWiew5 = function (view) {
+            alert("5");
             $location.path('/leaderTrainingCard5Test');
         }
         $scope.changeWiew6 = function (view) {
+            alert("6");
             $location.path('/leaderTrainingCard6Test');
         }
         /****************************************************************/
