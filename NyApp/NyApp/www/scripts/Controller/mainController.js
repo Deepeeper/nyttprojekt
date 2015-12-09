@@ -51,11 +51,8 @@
             console.log(JSON.stringify(result, null, 4));
         }
 
-        $scope.changeViewLeader = function (view) {
-            $location.path('/leader');
-        }
-        $scope.changeViewCoworker = function (view) {
-            $location.path('/coworker');
+        $scope.changeView = function (view) {
+            $location.path(view);
         }
 
     }
