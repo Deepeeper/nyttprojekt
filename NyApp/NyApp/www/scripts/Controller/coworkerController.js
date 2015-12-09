@@ -71,9 +71,7 @@
                 return parseInt($scope.d) + parseInt(11 - parseInt($scope.d % 7));
             }
         }
-        /*****************************************************************/
-        /*                       TestilitestTest                         */
-        //Har lagt till $location i app.controller
+        /***************LEADER**************************/
         $scope.changeViewLeaderCard1 = function (view) {
             $location.path('/leaderTrainingCard1');
         }
@@ -92,7 +90,26 @@
         $scope.changeViewLeaderCard6 = function (view) {
             $location.path('/leaderTrainingCard6');
         }
-        /****************************************************************/
+        /***************COWORKER***********************/
+        $scope.changeViewCoworkerCard1 = function (view) {
+            $location.path('/trainingCard1');
+        }
+        $scope.changeViewCoworkerCard2 = function (view) {
+            $location.path('/trainingCard2');
+        }
+        $scope.changeViewCoworkerCard3 = function (view) {
+            $location.path('/trainingCard3');
+        }
+        $scope.changeViewCoworkerCard4 = function (view) {
+            $location.path('/trainingCard4');
+        }
+        $scope.changeViewCoworkerCard5 = function (view) {
+            $location.path('/trainingCard5');
+        }
+        $scope.changeViewCoworkerCard6 = function (view) {
+            $location.path('/trainingCard6');
+        }
+        
     }
 
 });
