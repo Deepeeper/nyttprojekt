@@ -8,7 +8,7 @@
     var USEDEBUGDATEFROMFILE = true;
     var USEDEBUGDATECURRENT = true;
     var DEBUGDATEFROMFILE = new Date("1/1/2015");
-    var DEBUGCURRENTDATE = new Date("1/11/2015");
+    var DEBUGCURRENTDATE = new Date("1/13/2015");
 
     var timeToSchedule = 1000 * 57600; // 16h
     var dayInMS = 1000 * 86400; // 24h
@@ -73,11 +73,12 @@
             $cordovaLocalNotification.cancel(num).then(function (result) {
                 console.log("Notification " + num + " avbruten");
             });
-            
+            console.log("NUM: " + num);
+            console.log("DayDelta " + dayDelta);
             var newNum = num + 1;
             var scheduleDate;
 
-            if ($scope.cardsDone * 7 <= dayDelta) {
+            if (num * 7 <= dayDelta) {
                 scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * 86400 * 1000) + 4 * dayInMS);
             } else {
                 scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * 86400 * 1000) + (11 - dayDelta % 7) * dayInMS);

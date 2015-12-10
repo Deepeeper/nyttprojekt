@@ -1,11 +1,11 @@
-﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q) {
+﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, $location) {
 
     // Debug toggles
     var DEBUG = 1;
     var USEDEBUGDATEFROMFILE = true;
     var USEDEBUGDATECURRENT = true;
     var DEBUGDATEFROMFILE = new Date("1/1/2015");
-    var DEBUGCURRENTDATE = new Date("1/11/2015");
+    var DEBUGCURRENTDATE = new Date("1/13/2015");
 
     // asdf
     var currentDate;
@@ -71,6 +71,28 @@
                 return parseInt($scope.d) + parseInt(11 - parseInt($scope.d % 7));
             }
         }
+        $scope.changeView = function (view, cardControl, dateControl) {
+            if($scope.cardsDone < cardControl){
+                //http://t4t5.github.io/sweetalert/
+                swal({
+                    title:"",
+                    text: 'Låses upp när tidigare kort är avklarade.',
+                    confirmButtonColor: '#DC232D',
+                });
+            }
+            else if ($scope.dayDelta < dateControl) {
+                //swal("Låses upp om "+ $scope.dayDelta +" dagar");
+                swal({
+                    title:"",
+                    text: 'Låses upp om '+$scope.dayDelta+' dagar',
+                    confirmButtonColor: '#DC232D',
+                });
+            }
+            else {
+                $location.path(view);
+            }
+        }
+        
     }
 
 });

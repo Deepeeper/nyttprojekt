@@ -13,7 +13,6 @@ app.config(function ($routeProvider) {
          controller: 'coworkerController'
 
      })
-
     .when('/coworker', {
         templateUrl: 'PartialViews/coworker.html',
         controller: 'coworkerController'

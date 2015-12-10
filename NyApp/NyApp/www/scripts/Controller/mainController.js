@@ -1,4 +1,4 @@
-﻿app.controller('mainController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification) {
+﻿app.controller('mainController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $location) {
 
     // 16.00 = 57,600s
     // 24h = 86,400s
@@ -50,5 +50,10 @@
         function resultCallback(result) {
             console.log(JSON.stringify(result, null, 4));
         }
+
+        $scope.changeView = function (view) {
+            $location.path(view);
+        }
+
     }
 });
