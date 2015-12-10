@@ -2,7 +2,7 @@
 
     // 16.00 = 57,600s
     // 24h = 86,400s
-    var USEDEBUGSCHEDULING = true;
+    var USEDEBUGSCHEDULING = false;
     var DEBUGSCHEDULETIME = 30 * 1000; //30s
     var timeToSchedule = 1000 * 86400 * 4; // milliseconds * 86,400s=24h * number of days
 
