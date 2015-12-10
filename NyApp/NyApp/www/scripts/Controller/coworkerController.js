@@ -73,7 +73,6 @@
         }
         $scope.changeView = function (view, cardControl, dateControl) {
             if($scope.cardsDone < cardControl){
-                //http://t4t5.github.io/sweetalert/
                 swal({
                     title:"",
                     text: 'Låses upp när tidigare kort är avklarade.',
@@ -81,7 +80,6 @@
                 });
             }
             else if ($scope.dayDelta < dateControl) {
-                //swal("Låses upp om "+ $scope.dayDelta +" dagar");
                 swal({
                     title:"",
                     text: 'Låses upp om '+$scope.dayDelta+' dagar',
