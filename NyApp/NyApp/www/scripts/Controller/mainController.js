@@ -3,7 +3,8 @@
     // 16.00 = 57,600s
     // 24h = 86,400s
     var USEDEBUGSCHEDULING = true;
-    var DEBUGSCHEDULETIME = 30 * 1000; //30s
+    var DEBUGSCHEDULETIME = 1000 * 86400 * 4; //30s
+    var DEBUGSTARTDATE = new Date("1/1/2015");
     var timeToSchedule = 1000 * 86400 * 4; // milliseconds * 86,400s=24h * number of days
 
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -14,9 +15,8 @@
             function (error) {
                 $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(function (date) {
                     $cordovaFile.writeFile(cordova.file.dataDirectory, "date.txt", date.value, true).then(resultCallback);
-
                     if (USEDEBUGSCHEDULING) {
-                        var currentTime = new Date().getTime();
+                        var currentTime = new Date(date.value).getTime();
                         var scheduleDate = new Date(currentTime + DEBUGSCHEDULETIME);
                     } else {
                         var currentTime = new Date(date.value).getTime();
