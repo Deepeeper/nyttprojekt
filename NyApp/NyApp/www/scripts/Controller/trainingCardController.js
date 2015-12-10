@@ -8,7 +8,7 @@
     var USEDEBUGDATEFROMFILE = true;
     var USEDEBUGDATECURRENT = true;
     var DEBUGDATEFROMFILE = new Date("1/1/2015");
-    var DEBUGCURRENTDATE = new Date("1/9/2015");
+    var DEBUGCURRENTDATE = new Date("1/13/2015");
 
     var timeToSchedule = 1000 * 57600; // 16h
     var dayInMS = 1000 * 86400; // 24h
@@ -79,9 +79,9 @@
             var scheduleDate;
 
             if (num * 7 <= dayDelta) {
-                scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * 86400 * 1000) + 4 * dayInMS);
+                scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * dayInMS * 1000) + 4 * dayInMS);
             } else {
-                scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * 86400 * 1000) + (11 - dayDelta % 7) * dayInMS);
+                scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * dayInMS * 1000) + (11 - dayDelta % 7) * dayInMS);
             }
 
             $cordovaLocalNotification.schedule({
