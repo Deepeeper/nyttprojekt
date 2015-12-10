@@ -55,25 +55,8 @@
             window.history.back();
         }
 
-        $scope.cancel = function () {
-            $cordovaLocalNotification.cancel(1).then(function (result) {
-                alert("Notification avbruten");
-            });
-        };
-
-        $scope.d;
-        $scope.c;
-        $scope.g = function () {
-            if (parseInt($scope.c) * 7 <= parseInt($scope.d)) {
-                return parseInt($scope.d) + parseInt(4);
-            }
-            else {
-                return parseInt($scope.d) + parseInt(11 - parseInt($scope.d % 7));
-            }
-        }
         $scope.changeView = function (view, cardControl, dateControl) {
             if($scope.cardsDone < cardControl){
-                //http://t4t5.github.io/sweetalert/
                 swal({
                     title:"",
                     text: 'Låses upp när tidigare kort är avklarade.',
