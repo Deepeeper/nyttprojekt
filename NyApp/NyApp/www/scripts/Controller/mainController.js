@@ -14,7 +14,6 @@
             resultCallback,
             function (error) {
                 $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(function (date) {
-                    if (USEDEBUGSCHEDULING) { date = DEBUGSTARTDATE.toDateString(); }
                     $cordovaFile.writeFile(cordova.file.dataDirectory, "date.txt", date.value, true).then(resultCallback);
                     if (USEDEBUGSCHEDULING) {
                         var currentTime = new Date(date.value).getTime();
