@@ -1,4 +1,4 @@
-﻿app.controller('trainingCardController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q) {
+﻿app.controller('trainingCardController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, MAX_CARDS) {
 
     // 16.00 = 57,600s
     // 24h = 86,400s
@@ -7,8 +7,8 @@
     var DEBUGSCHEDULETIME = 20 * 1000; //20s
     var USEDEBUGDATEFROMFILE = true;
     var USEDEBUGDATECURRENT = true;
-    var DEBUGDATEFROMFILE = new Date("12/1/2015");
-    var DEBUGCURRENTDATE = new Date("1/6/2016");
+    var DEBUGDATEFROMFILE = new Date("1/1/2015");
+    var DEBUGCURRENTDATE = new Date("12/1/2015");
 
     var timeToSchedule = 1000 * 57600; // 16h
     var dayInMS = 1000 * 86400; // 24h
@@ -84,18 +84,23 @@
             } else {
                 scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * dayInMS) + (11 - dayDelta % 7) * dayInMS + timeToSchedule);
             }
-            console.log("scheduleDate: "+ scheduleDate);
+            console.log("scheduleDate: " + scheduleDate);
+
+            if(num < MAX_CARDS){
             $cordovaLocalNotification.schedule({
                 id: newNum,
-                title: 'Kort ' + newNum + ' schemalagt',
-                text: 'Kort ' + newNum,
+                title: 'Tele Coaching',
+                text: 'Glöm ej göra färdigt kort ' +newNum,
                 at: scheduleDate,
+                icon: 'ic_notification.png',
+                smallIcon: 'ic_notification_small.png',
                 data: {
-                    // customProperty: 'custom value'
-                }
+                // customProperty: 'custom value'
+            }
             }).then(function (result) {
                 console.log("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
             });
+        }
 
         }
 

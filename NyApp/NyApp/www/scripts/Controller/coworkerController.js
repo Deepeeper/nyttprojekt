@@ -1,11 +1,11 @@
-﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, $location) {
+﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, $location, DEBUG_DATES) {
 
     // Debug toggles
     var DEBUG = 1;
     var USEDEBUGDATEFROMFILE = true;
     var USEDEBUGDATECURRENT = true;
-    var DEBUGDATEFROMFILE = new Date("12/1/2015");
-    var DEBUGCURRENTDATE = new Date("1/6/2016");
+    var DEBUGDATEFROMFILE = new Date("1/1/2015");
+    var DEBUGCURRENTDATE = new Date("12/1/2015");
 
     // asdf
     var currentDate;

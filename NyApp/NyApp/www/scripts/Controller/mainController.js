@@ -4,7 +4,7 @@
     // 24h = 86,400s
     var USEDEBUGSCHEDULING = true;
     var DEBUGSCHEDULETIME = 1000 * 86400 * 4; //30s
-    var DEBUGSTARTDATE = new Date("1/1/2015");
+    var DEBUGSTARTDATE = new Date("12/1/2015");
     var timeToSchedule = 1000 * 86400 * 4; // milliseconds * 86,400s=24h * number of days
 
     document.addEventListener("deviceready", onDeviceReady, false);
