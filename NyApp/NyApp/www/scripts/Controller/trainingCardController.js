@@ -1,14 +1,10 @@
-﻿app.controller('trainingCardController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, MAX_CARDS) {
+﻿app.controller('trainingCardController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, DEBUG_DATES) {
 
     // 16.00 = 57,600s
     // 24h = 86,400s
     var DEBUG = 0;
     var USEDEBUGSCHEDULING = true;
     var DEBUGSCHEDULETIME = 20 * 1000; //20s
-    var USEDEBUGDATEFROMFILE = true;
-    var USEDEBUGDATECURRENT = true;
-    var DEBUGDATEFROMFILE = new Date("1/1/2015");
-    var DEBUGCURRENTDATE = new Date("12/1/2015");
 
     var timeToSchedule = 1000 * 57600; // 16h
     var dayInMS = 1000 * 86400; // 24h
@@ -28,10 +24,14 @@
 
         // Only attempt operations on Date objects after they've been succesfully fetched
         $q.all([fetchDateFromFilePromise, fetchDateFromAPIPromise]).then(function () {
-            if (USEDEBUGDATEFROMFILE) { dateFromFile = DEBUGDATEFROMFILE; }
-            if (USEDEBUGDATECURRENT) { currentDate = DEBUGCURRENTDATE; }
+            if (DEBUG_DATES.USEDEBUGDATEFROMFILE == "true") { dateFromFile = new Date(DEBUG_DATES.DEBUGDATEFROMFILE); }
+            if (DEBUG_DATES.USEDEBUGDATECURRENT == "true") { currentDate = new Date(DEBUG_DATES.DEBUGCURRENTDATE); }
             var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
-            dayDelta = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            $scope.dayDelta = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            alert(
+       "Mat ceil: " + Math.ceil(timeDiff / (1000 * 3600 * 24))
+       + " dates:  " + currentDate.getDate() + "   " + dateFromFile.getDate()
+       );
         })
 
         // Callback functions
