@@ -6,19 +6,22 @@
 </div>
 <br><br>
 <div id="alignTheText">
-<p>
-    Ett coachande förhållningssätt innebär att vi ska <span class="red">lyssna</span> mer än vad vi pratar. Ditt träningskort
-    handlar om att utmana ditt lyssnande i dina coachpass. Lyssna på detaljer genom ett yttre
-    lyssnande och hör vad som egentligen sägs.<br>
-    0 = inget lyssnande (har fokus på något annat)<br>
-    1= inre lyssnande (du hittar lösningar utifrån dina egna erfarenheter)<br>
-    <span class="red">
-        2 = yttre lyssnande (ordval och kroppsspråk hos den du coachar)<br>
-        3 = mönster lyssnande (repetitivt beteende hos den du coachar)
-    </span>
-</p>
-    </div>
-<div ng-show="cardsDone>1"><img class="checkmarkTC" src="img/checkmark.png"></div> 
+    <p>
+        Ett coachande förhållningssätt innebär att vi ska <span class="red">lyssna</span> mer än vad vi pratar. Ditt träningskort
+        handlar om att utmana ditt lyssnande i dina coachpass. Lyssna på detaljer genom ett yttre
+        lyssnande och hör vad som egentligen sägs.<br>
+        0 = inget lyssnande (har fokus på något annat)<br>
+        1= inre lyssnande (du hittar lösningar utifrån dina egna erfarenheter)<br>
+        <span class="red">
+            2 = yttre lyssnande (ordval och kroppsspråk hos den du coachar)<br>
+            3 = mönster lyssnande (repetitivt beteende hos den du coachar)
+        </span>
+    </p>
+    <p class="copyright">
+        Copyright Tele Coaching i Örebro AB ©
+    </p>
+</div>
+<div ng-show="cardsDone>1"><img class="checkmarkTC" src="img/checkmark.png"></div>
 <div id="putContentAtBottomAndCenter">
     <button class="doneButtons" ng-click="saveCardNumber('2'); updateSchedule(2)" ng-disabled="cardsDone >=2" ng-class="{lockedDoneButtons:cardsDone>1}">Färdig</button>
 </div> 

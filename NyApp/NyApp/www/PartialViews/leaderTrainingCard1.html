@@ -6,21 +6,24 @@
 </div>
 <br><br>
 <div id="alignTheText">
-<p>
-    Denna vecka ska du träna på relationsskapande. För att lyckas med din coaching så behöver
-    du skapa och bibehålla en god relation till den du coachar. Använd frågor för att ta reda på
-    individens inställning och förväntningar.
-</p>
-<p class="red">
-    <i>
-    Hur tänker du kring dina kundmöten?
-    Vilka röda respektive gröna kryss upplever du på arbetet? Hur ska vi utmana de röda kryssen?
-    Vad förväntar du dig av mig som coach/ledare?
+    <p>
+        Denna vecka ska du träna på relationsskapande. För att lyckas med din coaching så behöver
+        du skapa och bibehålla en god relation till den du coachar. Använd frågor för att ta reda på
+        individens inställning och förväntningar.
+    </p>
+    <p class="red">
+        <i>
+            Hur tänker du kring dina kundmöten?
+            Vilka röda respektive gröna kryss upplever du på arbetet? Hur ska vi utmana de röda kryssen?
+            Vad förväntar du dig av mig som coach/ledare?
         </i>
-</p>
+    </p>
     <p>Kom ihåg att utmana din egen världsbild av vad du tror om personerna sedan innan.</p>
-    </div>
-<div ng-show="cardsDone>0"><img class="checkmarkTC" src="img/checkmark.png"></div> 
+    <p class="copyright">
+        Copyright Tele Coaching i Örebro AB ©
+    </p>
+</div>
+<div ng-show="cardsDone>0"><img class="checkmarkTC" src="img/checkmark.png"></div>
 <div id="putContentAtBottomAndCenter">
     <button class="doneButtons" ng-click="saveCardNumber('1'); updateSchedule(1)" ng-disabled="cardsDone >=1" ng-class="{lockedDoneButtons:cardsDone>0}">Färdig</button>
 </div>

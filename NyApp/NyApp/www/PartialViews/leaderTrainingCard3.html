@@ -6,30 +6,33 @@
 </div>
 <br><br>
 <div id="alignTheText">
-<p>
-    ”Som vi frågar får vi svar”. Detta träningskort handlar om ditt Y: ande förhållningssätt. Arbeta
-    aktivt och anpassat med din <span class="red">frågeteknik</span> genom att ställa öppna och slutna frågor till
-    individen på ett tydligt och medvetet sätt. Utmana svaren du får genom att ställa motfrågor.
-</p>
-<p class="red">
-    <b>Öppna frågor</b> - öppnar upp för att individen själv ska beskriva
-</p>
-<p class="red">
-    <i>
-    Vad har du tränat på utifrån Tele Coachings träningskort?
-    Vilken skillnad har det skapat?
-    </i>
-</p>
-<p class="red">
-    <b>Slutna frågor</b> – kan individen bara svara JA eller NEJ på.
-</p>
-<p class="red">
-    <i>
-        Har du tränat utifrån Tele Coachings träningskort?
-    </i>
-</p>
-    </div>
-<div ng-show="cardsDone>2"><img class="checkmarkTC" src="img/checkmark.png"></div> 
+    <p>
+        ”Som vi frågar får vi svar”. Detta träningskort handlar om ditt Y: ande förhållningssätt. Arbeta
+        aktivt och anpassat med din <span class="red">frågeteknik</span> genom att ställa öppna och slutna frågor till
+        individen på ett tydligt och medvetet sätt. Utmana svaren du får genom att ställa motfrågor.
+    </p>
+    <p class="red">
+        <b>Öppna frågor</b> - öppnar upp för att individen själv ska beskriva
+    </p>
+    <p class="red">
+        <i>
+            Vad har du tränat på utifrån Tele Coachings träningskort?
+            Vilken skillnad har det skapat?
+        </i>
+    </p>
+    <p class="red">
+        <b>Slutna frågor</b> – kan individen bara svara JA eller NEJ på.
+    </p>
+    <p class="red">
+        <i>
+            Har du tränat utifrån Tele Coachings träningskort?
+        </i>
+    </p>
+    <p class="copyright">
+        Copyright Tele Coaching i Örebro AB ©
+    </p>
+</div>
+<div ng-show="cardsDone>2"><img class="checkmarkTC" src="img/checkmark.png"></div>
 <div id="putContentAtBottomAndCenter">
     <button class="doneButtons" ng-click="saveCardNumber('3'); updateSchedule(3)" ng-disabled="cardsDone >=3" ng-class="{lockedDoneButtons:cardsDone>2}">Färdig</button>
 </div>
