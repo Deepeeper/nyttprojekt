@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="io.cordova.myappf69f18" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="en-US">
   <name>TeleCoaching</name>
   <description>TeleCoaching</description>
@@ -78,4 +78,5 @@
   <vs:plugin name="de.appplant.cordova.plugin.local-notification" version="0.8.2" src="https://github.com/katzer/cordova-plugin-local-notifications.git" />
   <preference name="Fullscreen" value="False" />
   <vs:plugin name="cordova-plugin-splashscreen" version="3.0.0" />
+  <preference name="Orientation" value="portrait" />
 </widget>

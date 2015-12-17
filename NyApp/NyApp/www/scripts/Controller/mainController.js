@@ -1,14 +1,16 @@
-﻿app.controller('mainController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $location) {
+﻿app.controller('mainController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $location, dates, $q) {
 
     // 16.00 = 57,600s
     // 24h = 86,400s
     var USEDEBUGSCHEDULING = true;
     var DEBUGSCHEDULETIME = 1000 * 86400 * 4; //30s
-    var DEBUGSTARTDATE = new Date("1/1/2015");
+    var DEBUGSTARTDATE = new Date("12/1/2015");
     var timeToSchedule = 1000 * 86400 * 4; // milliseconds * 86,400s=24h * number of days
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
+        $scope.fff = function () { console.log("kiss"); dates.getDateFromFile(); dates.getCurrentDate(); }
+       
         // Check if date.txt exists. If true, do nothing, else fetch todays date, write it to the file and schedule a notification.
         $cordovaFile.checkFile(cordova.file.dataDirectory, "date.txt").then(
             resultCallback,
@@ -54,6 +56,5 @@
         $scope.changeView = function (view) {
             $location.path(view);
         }
-
     }
 });

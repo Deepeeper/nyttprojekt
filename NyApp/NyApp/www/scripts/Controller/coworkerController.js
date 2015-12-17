@@ -1,11 +1,7 @@
-﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, $location) {
+﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, $location, DEBUG_DATES) {
 
     // Debug toggles
     var DEBUG = 1;
-    var USEDEBUGDATEFROMFILE = true;
-    var USEDEBUGDATECURRENT = true;
-    var DEBUGDATEFROMFILE = new Date("12/1/2015");
-    var DEBUGCURRENTDATE = new Date("1/6/2016");
 
     // asdf
     var currentDate;
@@ -15,8 +11,9 @@
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
+        dates.getDateFromFile();
         // Wrap the ngCordova services for file access and date fetching in promises
-        // TODO: Make into service
+        // TODO: Make into services
         var fetchDateFromFilePromise = $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
             fetchDateFromFileSuccess, failCallback);
         var fetchDateFromAPIPromise = $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
@@ -28,10 +25,14 @@
 
         // Only attempt operations on Date objects after they've been succesfully fetched
         $q.all([fetchDateFromFilePromise, fetchDateFromAPIPromise]).then(function () {
-            if (USEDEBUGDATEFROMFILE) { dateFromFile = DEBUGDATEFROMFILE; }
-            if (USEDEBUGDATECURRENT) { currentDate = DEBUGCURRENTDATE; }
+            if (DEBUG_DATES.USEDEBUGDATEFROMFILE == "true") { dateFromFile = new Date(DEBUG_DATES.DEBUGDATEFROMFILE); }
+            if (DEBUG_DATES.USEDEBUGDATECURRENT == "true") { currentDate = new Date(DEBUG_DATES.DEBUGCURRENTDATE); }
             var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
             $scope.dayDelta = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            alert(
+                "Mat ceil: " + Math.ceil(timeDiff / (1000 * 3600 * 24))
+                + " dates:  " + currentDate.getDate() + "   " + dateFromFile.getDate()
+                );
         })
 
         // Callback functions
