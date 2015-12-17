@@ -1,17 +1,13 @@
-﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, $location, DEBUG_DATES, dates) {
-
-    // Debug toggles
-    var DEBUG = 1;
-
-    // asdf
-    var currentDate;
-    var dateFromFile;
-    $scope.dayDelta = 0;
-    $scope.cardsDone = 0;
+﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, $location, DEBUG_DATES) {
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-        dates.getDateFromFile();
+        var currentDate;
+        var dateFromFile;
+
+        $scope.dayDelta = 0;
+        $scope.cardsDone = 0;
+
         // Wrap the ngCordova services for file access and date fetching in promises
         // TODO: Make into services
         var fetchDateFromFilePromise = $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
@@ -29,8 +25,7 @@
             if (DEBUG_DATES.USEDEBUGDATECURRENT == "true") { currentDate = new Date(DEBUG_DATES.DEBUGCURRENTDATE); }
             var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
             $scope.dayDelta = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            alert(
-                "Mat ceil: " + Math.ceil(timeDiff / (1000 * 3600 * 24))
+            console.log("dayDelta: " + $scope.dayDelta
                 + " dates:  " + currentDate.getDate() + "   " + dateFromFile.getDate()
                 );
         })
@@ -38,15 +33,15 @@
         // Callback functions
         function fetchDateFromFileSuccess(result) {
             dateFromFile = new Date(JSON.stringify(result));
-            if (DEBUG == 1) { console.log("1"); }
+            console.log(JSON.stringify(result, null, 4));
         }
         function fetchDateFromAPISuccess(result) {
             currentDate = new Date(result.value);
-            if (DEBUG == 1) { console.log("1"); }
+            console.log(JSON.stringify(result, null, 4));
         }
         function fetchCompletedCardsSuccess(result) {
             $scope.cardsDone = result;
-            if (DEBUG == 1) { console.log(JSON.stringify(result)); }
+            console.log(JSON.stringify(result, null, 4));
         }
         function failCallback(error) {
             console.log(JSON.stringify(error, null, 4));

@@ -27,8 +27,8 @@
             if (DEBUG_DATES.USEDEBUGDATEFROMFILE == "true") { dateFromFile = new Date(DEBUG_DATES.DEBUGDATEFROMFILE); }
             if (DEBUG_DATES.USEDEBUGDATECURRENT == "true") { currentDate = new Date(DEBUG_DATES.DEBUGCURRENTDATE); }
             var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
-            $scope.dayDelta = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            alert(
+            dayDelta = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            console.log(
        "Mat ceil: " + Math.ceil(timeDiff / (1000 * 3600 * 24))
        + " dates:  " + currentDate.getDate() + "   " + dateFromFile.getDate()
        );
