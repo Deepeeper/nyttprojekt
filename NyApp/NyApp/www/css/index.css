@@ -180,9 +180,9 @@
     margin: 5% auto;
     padding-left:2%;
     width: 95%;
-    background-image: -moz-linear-gradient(top, transparent, transparent 29px,#E7EFF8 0px); 
+    /*background-image: -moz-linear-gradient(top, transparent, transparent 27px,#E7EFF8 0px); 
     background-image: -webkit-linear-gradient(top, transparent, transparent 29px,#E7EFF8 0);
-    background-size: 100% 30px;
+    background-size: 100% 30px;*/
 }
 .text-head{
     padding-top:6px;
@@ -224,6 +224,10 @@
     width:96%;
     margin-left: 2%;
 }
-
-
-
+.red{
+    color:#de0120;
+    font-style:italic;
+}
+.copyright{
+    font-size:9px;
+}
