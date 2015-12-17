@@ -4,7 +4,6 @@
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
-    
 }
 .doneButtons {
     border-top-color: #819BCB;
@@ -231,6 +230,6 @@
     width:96%;
     margin-left: 2%;
 }
-#scalePic{
-    border:dashed;
-}
+
+
+
