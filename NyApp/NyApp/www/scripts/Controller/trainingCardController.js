@@ -1,4 +1,4 @@
-﻿app.controller('trainingCardController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, DEBUG_DATES) {
+﻿app.controller('trainingCardController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, DEBUG_DATES, MAX_CARDS) {
 
     // 16.00 = 57,600s
     // 24h = 86,400s
