@@ -1,4 +1,4 @@
-﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, $location, DEBUG_DATES) {
+app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, $location, DEBUG_DATES) {
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
@@ -25,6 +25,7 @@
             if (DEBUG_DATES.USEDEBUGDATECURRENT == "true") { currentDate = new Date(DEBUG_DATES.DEBUGCURRENTDATE); }
             var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
             $scope.dayDelta = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            console.log("DateFromFile = "+dateFromFile);
             console.log("dayDelta: " + $scope.dayDelta
                 + " dates:  " + currentDate.getDate() + "   " + dateFromFile.getDate()
                 );
@@ -32,8 +33,8 @@
 
         // Callback functions
         function fetchDateFromFileSuccess(result) {
-            dateFromFile = new Date(JSON.stringify(result));
-            console.log(JSON.stringify(result, null, 4));
+               dateFromFile = new Date(result.toString());
+               console.log("datefromfile = " + dateFromFile);
         }
         function fetchDateFromAPISuccess(result) {
             currentDate = new Date(result.value);

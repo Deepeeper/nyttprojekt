@@ -50,7 +50,7 @@
         function failCallback(error) {
             console.log(JSON.stringify(error, null, 4));
         }
-        
+
         $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
             console.log(JSON.stringify(result)); $scope.cardsDone = result;
         }, function (error) {
@@ -86,21 +86,21 @@
             }
             console.log("scheduleDate: " + scheduleDate);
 
-            if(num < MAX_CARDS){
-            $cordovaLocalNotification.schedule({
-                id: newNum,
-                title: 'Tele Coaching',
-                text: 'Glöm ej göra färdigt kort ' +newNum,
-                at: scheduleDate,
-                icon: 'ic_notification.png',
-                smallIcon: 'ic_notification_small.png',
-                data: {
-                // customProperty: 'custom value'
+            if (num < MAX_CARDS) {
+                $cordovaLocalNotification.schedule({
+                    id: newNum,
+                    title: 'Tele Coaching',
+                    text: 'Glöm ej göra färdigt kort ' + newNum,
+                    at: scheduleDate,
+                    icon: 'ic_notification.png',
+                    smallIcon: 'ic_notification_small.png',
+                    data: {
+                        // customProperty: 'custom value'
+                    }
+                }).then(function (result) {
+                    console.log("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
+                });
             }
-            }).then(function (result) {
-                console.log("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
-            });
-        }
 
         }
 
