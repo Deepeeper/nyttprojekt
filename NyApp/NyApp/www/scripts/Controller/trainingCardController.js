@@ -12,7 +12,7 @@
     var dateFromFile;
     var dayDelta;
 
-    $scope.cardsDone;
+    $scope.cardsDone = 0;
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
@@ -28,27 +28,27 @@
             if (DEBUG_DATES.USEDEBUGDATECURRENT == "true") { currentDate = new Date(DEBUG_DATES.DEBUGCURRENTDATE); }
             var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
             dayDelta = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            console.log(
-       "Mat ceil: " + Math.ceil(timeDiff / (1000 * 3600 * 24))
+            alert(
+       "dayDelta = " + dayDelta
        + " dates:  " + currentDate.getDate() + "   " + dateFromFile.getDate()
        );
         })
 
         // Callback functions
         function fetchDateFromFileSuccess(result) {
-            dateFromFile = new Date(JSON.stringify(result));
-            if (DEBUG == 1) { console.log("1"); }
+            dateFromFile = new Date(result.toString());
+            alert("datefromfile = " + dateFromFile);
         }
         function fetchDateFromAPISuccess(result) {
             currentDate = new Date(result.value);
-            if (DEBUG == 1) { console.log("1"); }
+            alert(currentDate);
         }
         function fetchCompletedCardsSuccess(result) {
             $scope.cardsDone = result;
             if (DEBUG == 1) { console.log(JSON.stringify(result)); }
         }
         function failCallback(error) {
-            console.log(JSON.stringify(error, null, 4));
+            alert(JSON.stringify(error, null, 4));
         }
 
         $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
@@ -70,12 +70,15 @@
         // TODO: Fixa för sista kortet
         // TODO: Lägg till knappar i alla kort
         $scope.updateSchedule = function (num) {
+
             $cordovaLocalNotification.cancel(num).then(function (result) {
                 console.log("Notification " + num + " avbruten");
             });
+            alert(dateFromFile);
             console.log("NUM: " + num);
             console.log("DayDelta " + dayDelta);
             var newNum = num + 1;
+            newNum = newNum.toString();
             var scheduleDate;
 
             if (num * 7 <= dayDelta) {
@@ -98,7 +101,7 @@
                         // customProperty: 'custom value'
                     }
                 }).then(function (result) {
-                    console.log("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
+                    alert("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
                 });
             }
 
