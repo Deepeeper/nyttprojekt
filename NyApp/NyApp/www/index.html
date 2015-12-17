@@ -3,19 +3,11 @@
 
 <head>
     <meta charset="utf-8" />
-
-    <!--
-        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
-        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
-    -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *">
-    <title>spatest</title>
-
-    <!-- spatest references -->
+    <title>Tele Coaching</title>
     <link href="css/index.css" rel="stylesheet" />
 </head>
 <body>
-    <!-- Cordova reference, this is added to your app when it's built. -->
     <script src="scripts/Scripts/angular.min.js"></script>
     <script src="scripts/Scripts/angular-route.min.js"></script>
     <script src="scripts/ng-cordova.js"></script>
@@ -30,13 +22,8 @@
     <script src="css/sweetalert-master/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/sweetalert-master/dist/sweetalert.css">
     <div ng-app="TeleCoaching">
-        <div ng-view style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" 
- unselectable="on"
- onselectstart="return false;" 
- onmousedown="return false;">
-
+        <div ng-view style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
         </div>
-        <!--<button id="readKnapp">Läs mig</button>-->
     </div>
 </body>
 </html>
