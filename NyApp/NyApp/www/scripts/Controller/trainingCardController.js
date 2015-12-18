@@ -28,7 +28,7 @@
             if (DEBUG_DATES.USEDEBUGDATECURRENT == "true") { currentDate = new Date(DEBUG_DATES.DEBUGCURRENTDATE); }
             var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
             dayDelta = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            alert(
+            console.log(
        "dayDelta = " + dayDelta
        + " dates:  " + currentDate.getDate() + "   " + dateFromFile.getDate()
        );
@@ -37,18 +37,18 @@
         // Callback functions
         function fetchDateFromFileSuccess(result) {
             dateFromFile = new Date(result.toString());
-            alert("datefromfile = " + dateFromFile);
+            console.log("datefromfile = " + dateFromFile);
         }
         function fetchDateFromAPISuccess(result) {
             currentDate = new Date(result.value);
-            alert(currentDate);
+            console.log(currentDate);
         }
         function fetchCompletedCardsSuccess(result) {
             $scope.cardsDone = result;
             if (DEBUG == 1) { console.log(JSON.stringify(result)); }
         }
         function failCallback(error) {
-            alert(JSON.stringify(error, null, 4));
+            console.log(JSON.stringify(error, null, 4));
         }
 
         $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
@@ -74,7 +74,6 @@
             $cordovaLocalNotification.cancel(num).then(function (result) {
                 console.log("Notification " + num + " avbruten");
             });
-            alert(dateFromFile);
             console.log("NUM: " + num);
             console.log("DayDelta " + dayDelta);
             var newNum = num + 1;
@@ -101,10 +100,10 @@
                         // customProperty: 'custom value'
                     }
                 }).then(function (result) {
-                    alert("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
+                    console.log("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
                 });
             }
-
+            
         }
 
     }
