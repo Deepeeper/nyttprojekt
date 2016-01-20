@@ -19,7 +19,7 @@
         // TODO: Make into service
         var fetchDateFromFilePromise = $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
             fetchDateFromFileSuccess, failCallback);
-        var fetchDateFromAPIPromise = $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
+        var fetchDateFromAPIPromise = $cordovaGlobalization.dateToString(new Date(), { formatLength: 'long', selector: 'date' }).then(
             fetchDateFromAPISuccess, failCallback);
 
         // Only attempt operations on Date objects after they've been succesfully fetched

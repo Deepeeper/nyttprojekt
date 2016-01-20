@@ -9,12 +9,14 @@
         $cordovaFile.checkFile(cordova.file.dataDirectory, "date.txt").then(
             resultCallback,
             function (error) {
-                $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(function (date) {
+                $cordovaGlobalization.dateToString(new Date(), { formatLength: 'long', selector: 'date' }).then(function (date) {
+                    alert(date.value);
                     $cordovaFile.writeFile(cordova.file.dataDirectory, "date.txt", date.value, true).then(resultCallback);
                     if (DEBUG_DATES.USEDEBUGDATEFROMFILE == 'true') {
                         var currentTime = new Date(DEBUG_DATES.DEBUGDATEFROMFILE).getTime();
                     } else {
                         var currentTime = new Date(date.value).getTime();
+                        alert("corrent time = " + currentTime);
                     }
                     var scheduleDate = new Date(currentTime + timeToSchedule);
                     $cordovaLocalNotification.schedule({

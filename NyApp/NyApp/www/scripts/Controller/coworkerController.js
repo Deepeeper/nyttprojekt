@@ -12,7 +12,7 @@ app.controller('coworkerController', function ($scope, $cordovaGlobalization, $c
         // TODO: Make into services
         var fetchDateFromFilePromise = $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
             fetchDateFromFileSuccess, failCallback);
-        var fetchDateFromAPIPromise = $cordovaGlobalization.dateToString(new Date(), { formatLength: 'short', selector: 'date' }).then(
+        var fetchDateFromAPIPromise = $cordovaGlobalization.dateToString(new Date(), { formatLength: 'long', selector: 'date' }).then(
             fetchDateFromAPISuccess, failCallback);
 
         // Fetch number of completed cards from file
@@ -56,7 +56,7 @@ app.controller('coworkerController', function ($scope, $cordovaGlobalization, $c
             if($scope.cardsDone < cardControl){
                 swal({
                     title:"",
-                    text: 'Låses upp när tidigare kort är avklarade.',
+                    text: 'Låses upp när tidigare kort är avklarade',
                     confirmButtonColor: '#DC232D',
                 });
             }
@@ -67,7 +67,7 @@ app.controller('coworkerController', function ($scope, $cordovaGlobalization, $c
                 //swal("Låses upp om "+ $scope.dayDelta +" dagar");
                 swal({
                     title:"",
-                    text: 'Låses upp om '+ (dateControl - $scope.dayDelta) +' dagar',
+                    text: 'Låses upp om '+ (dateControl - $scope.dayDelta) +' dag(ar)',
                     confirmButtonColor: '#DC232D',
                 });
             }
