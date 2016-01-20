@@ -1,6 +1,6 @@
 ﻿app.controller('mainController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $location, $q, DEBUG_DATES) {
 
-    var timeToSchedule = 1000 * 86400 * 4; // milliseconds * 86,400s=24h * number of days
+    var timeToSchedule = (1000 * 86400 * 4) + (57600 * 1000); // milliseconds * 86,400s=24h * number of days + millisec * 16h
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
