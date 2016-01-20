@@ -1,4 +1,4 @@
-﻿app.controller('coworkerController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, $location) {
+﻿app.controller('coworkerController', function ($scope, $getDaysDelta, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, $location) {
 
     // Debug toggles
     var DEBUG = 1;
@@ -15,6 +15,7 @@
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
+        alert("alert: " + $getDaysDelta);
         // Wrap the ngCordova services for file access and date fetching in promises
         // TODO: Make into service
         var fetchDateFromFilePromise = $cordovaFile.readAsText(cordova.file.dataDirectory, "date.txt").then(
