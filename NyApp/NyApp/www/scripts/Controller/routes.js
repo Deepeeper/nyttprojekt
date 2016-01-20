@@ -5,7 +5,6 @@ app.config(function ($routeProvider) {
       .when('/', {
           templateUrl: 'PartialViews/main.html',
           controller: 'mainController'
-
       })
 
      .when('/leader', {

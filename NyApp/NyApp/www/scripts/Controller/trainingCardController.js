@@ -1,14 +1,10 @@
-﻿app.controller('trainingCardController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q) {
+﻿app.controller('trainingCardController', function ($scope, $cordovaGlobalization, $cordovaFile, $cordovaLocalNotification, $q, DEBUG_DATES, MAX_CARDS) {
 
     // 16.00 = 57,600s
     // 24h = 86,400s
     var DEBUG = 0;
     var USEDEBUGSCHEDULING = true;
     var DEBUGSCHEDULETIME = 20 * 1000; //20s
-    var USEDEBUGDATEFROMFILE = true;
-    var USEDEBUGDATECURRENT = true;
-    var DEBUGDATEFROMFILE = new Date("12/1/2015");
-    var DEBUGCURRENTDATE = new Date("1/6/2016");
 
     var timeToSchedule = 1000 * 57600; // 16h
     var dayInMS = 1000 * 86400; // 24h
@@ -16,7 +12,7 @@
     var dateFromFile;
     var dayDelta;
 
-    $scope.cardsDone;
+    $scope.cardsDone = 0;
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
@@ -28,20 +24,24 @@
 
         // Only attempt operations on Date objects after they've been succesfully fetched
         $q.all([fetchDateFromFilePromise, fetchDateFromAPIPromise]).then(function () {
-            if (USEDEBUGDATEFROMFILE) { dateFromFile = DEBUGDATEFROMFILE; }
-            if (USEDEBUGDATECURRENT) { currentDate = DEBUGCURRENTDATE; }
+            if (DEBUG_DATES.USEDEBUGDATEFROMFILE == "true") { dateFromFile = new Date(DEBUG_DATES.DEBUGDATEFROMFILE); }
+            if (DEBUG_DATES.USEDEBUGDATECURRENT == "true") { currentDate = new Date(DEBUG_DATES.DEBUGCURRENTDATE); }
             var timeDiff = Math.abs(currentDate.getTime() - dateFromFile.getTime());
             dayDelta = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            console.log(
+       "dayDelta = " + dayDelta
+       + " dates:  " + currentDate.getDate() + "   " + dateFromFile.getDate()
+       );
         })
 
         // Callback functions
         function fetchDateFromFileSuccess(result) {
-            dateFromFile = new Date(JSON.stringify(result));
-            if (DEBUG == 1) { console.log("1"); }
+            dateFromFile = new Date(result.toString());
+            console.log("datefromfile = " + dateFromFile);
         }
         function fetchDateFromAPISuccess(result) {
             currentDate = new Date(result.value);
-            if (DEBUG == 1) { console.log("1"); }
+            console.log(currentDate);
         }
         function fetchCompletedCardsSuccess(result) {
             $scope.cardsDone = result;
@@ -50,7 +50,7 @@
         function failCallback(error) {
             console.log(JSON.stringify(error, null, 4));
         }
-        
+
         $cordovaFile.readAsText(cordova.file.dataDirectory, "jort.txt").then(function (result) {
             console.log(JSON.stringify(result)); $scope.cardsDone = result;
         }, function (error) {
@@ -70,12 +70,14 @@
         // TODO: Fixa för sista kortet
         // TODO: Lägg till knappar i alla kort
         $scope.updateSchedule = function (num) {
+
             $cordovaLocalNotification.cancel(num).then(function (result) {
                 console.log("Notification " + num + " avbruten");
             });
             console.log("NUM: " + num);
             console.log("DayDelta " + dayDelta);
             var newNum = num + 1;
+            newNum = newNum.toString();
             var scheduleDate;
 
             if (num * 7 <= dayDelta) {
@@ -84,19 +86,24 @@
             } else {
                 scheduleDate = new Date(dateFromFile.getTime() + (dayDelta * dayInMS) + (11 - dayDelta % 7) * dayInMS + timeToSchedule);
             }
-            console.log("scheduleDate: "+ scheduleDate);
-            $cordovaLocalNotification.schedule({
-                id: newNum,
-                title: 'Kort ' + newNum + ' schemalagt',
-                text: 'Kort ' + newNum,
-                at: scheduleDate,
-                data: {
-                    // customProperty: 'custom value'
-                }
-            }).then(function (result) {
-                console.log("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
-            });
+            console.log("scheduleDate: " + scheduleDate);
 
+            if (num < MAX_CARDS) {
+                $cordovaLocalNotification.schedule({
+                    id: newNum,
+                    title: 'Tele Coaching',
+                    text: 'Glöm ej göra färdigt kort ' + newNum,
+                    at: scheduleDate,
+                    icon: 'ic_notification.png',
+                    smallIcon: 'ic_notification_small.png',
+                    data: {
+                        // customProperty: 'custom value'
+                    }
+                }).then(function (result) {
+                    console.log("Notification scheduled to " + scheduleDate.toDateString() + " " + scheduleDate.toTimeString());
+                });
+            }
+            
         }
 
     }
